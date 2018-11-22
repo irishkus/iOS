@@ -67,6 +67,7 @@ while i < newArray.count  {
 //выводим массив после удаления
 
 print(newArray)
+print("=============")
 
 // функция, которая добавляет в массив новое число Фибоначчи
 
@@ -90,4 +91,43 @@ for _ in (1...100){
 //выводим массив с числами Фибоначчи
 
 print(fibonaciArray)
+print("=============")
 
+//Заполняем массив из 100 элементов различными простыми числами.
+//для этого выписываем подряд все целые числа от двух до n
+
+var simpleNumberArray = [Int]()
+var p: Int = 2 //переменная p изначально равна двум – первому простому числу.
+var n:Int = 1000
+for i in (2...(n)){
+    simpleNumberArray.append(i)
+}
+
+//Функция, которая зачеркивает (заменяет на 0) в списке числа от 2p до n, считая шагами по p
+func crossOut (array: inout [Int], p: Int, n: inout Int){
+    for a in stride(from: 2*p-2, to: n-1, by: p){
+        array[a] = 0
+    }
+}
+
+//повторяем шаги с зачеркиванием не простых чисел и увеличением р
+while p < n/2 {
+    crossOut(array: &simpleNumberArray, p: p, n: &n)
+    i = 0
+    while i<simpleNumberArray.count{
+        if simpleNumberArray[i] > p {
+            p = simpleNumberArray[i] //Находим первое не зачеркнутое число в списке, большее, чем p, и присваиваем значению переменной p это число
+            break
+        }else {i+=1}
+    }
+}
+i = 0
+//оставляем массив из 100 простых чисел
+while i<simpleNumberArray.count{
+    if (simpleNumberArray[i] == 0)||(i>=100) {
+        simpleNumberArray.remove(at: i)
+    } else {i+=1}
+}
+
+//выводим массив с простыми числами из 100 элементов
+print(simpleNumberArray)
