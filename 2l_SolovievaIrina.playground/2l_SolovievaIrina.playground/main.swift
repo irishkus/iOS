@@ -104,7 +104,7 @@ for i in (2...(n)){
 }
 
 //Функция, которая зачеркивает (заменяет на 0) в списке числа от 2p до n, считая шагами по p
-func crossOut (array: inout [Int], p: Int, n: inout Int){
+func crossOut (array: inout [Int], p: Int, n: Int){
     for a in stride(from: 2*p-2, to: n-1, by: p){
         array[a] = 0
     }
@@ -112,7 +112,7 @@ func crossOut (array: inout [Int], p: Int, n: inout Int){
 
 //повторяем шаги с зачеркиванием не простых чисел и увеличением р
 while p < n/2 {
-    crossOut(array: &simpleNumberArray, p: p, n: &n)
+    crossOut(array: &simpleNumberArray, p: p, n: n)
     i = 0
     while i<simpleNumberArray.count{
         if simpleNumberArray[i] > p {
