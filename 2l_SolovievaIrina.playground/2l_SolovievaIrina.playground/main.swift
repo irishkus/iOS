@@ -21,12 +21,12 @@ func even (number: Int) -> Bool{
 
 //проверяем работу функции
 
+print("работа функции even")
 print(String(even (number: 3)))
 print(String(even (number: 13)))
 print(String(even (number: 11)))
 print(String(even (number: 12)))
 print(String(even (number: 4)))
-print("=============")
 
 //функция, которая определяет, делится ли число без остатка на 3
 
@@ -41,12 +41,12 @@ func division(number: Int) -> Bool{
 
 //проверяем работу функции
 
+print("работа функции division")
 print(String(division (number: 3)))
 print(String(division (number: 13)))
 print(String(division (number: 11)))
 print(String(division (number: 12)))
 print(String(division (number: 4)))
-print("=============")
 
 //Создаем возрастающий массив из 100 чисел
 
@@ -66,8 +66,8 @@ while i < newArray.count  {
 
 //выводим массив после удаления
 
+print("массив после удаления четных чисел и чисел, которые не делятся на 3")
 print(newArray)
-print("=============")
 
 // функция, которая добавляет в массив новое число Фибоначчи
 
@@ -90,8 +90,8 @@ for _ in (1...100){
 
 //выводим массив с числами Фибоначчи
 
+print("Массив с числами Фибоначчи")
 print(fibonaciArray)
-print("=============")
 
 //Заполняем массив из 100 элементов различными простыми числами.
 //для этого выписываем подряд все целые числа от двух до n
@@ -130,4 +130,5 @@ while i<simpleNumberArray.count{
 }
 
 //выводим массив с простыми числами из 100 элементов
+print("Массив с простыми числами ")
 print(simpleNumberArray)
