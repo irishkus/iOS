@@ -81,7 +81,9 @@ struct Car {
             self.engineState = .kill
         }
     }
-    
+    func printProperties() {
+        print("Легковой автомобиль года выпуска \(year), марки \(model), c объемом багажника \(luggageCapacity) и занятым объемом \(luggageCapacityBusy), имеет двигатель в состоянии \(engineState) и окна в состоянии \(windowsState)")
+    }
     
 }
 //структура грузовик
@@ -139,14 +141,17 @@ struct Truck {
             self.engineState = .kill
         }
     }
+    func printProperties() {
+        print("Грузовик года выпуска \(year), марки \(model), c объемом кузова \(bodyCapacity) и занятым объемом \(bodyCapacityBusy), имеет двигатель в состоянии \(engineState) и окна в состоянии \(windowsState)")
+    }
 }
 
 // инициализация нескольки экземпляров структур
-var car1 = Car (year: 4, model: .geely, luggageCapacity: 30.0, luggageCapacityBusy: 20.5, engineState: .run, windowsState: .close)
+var car1 = Car (year: 2013, model: .geely, luggageCapacity: 30.0, luggageCapacityBusy: 20.5, engineState: .run, windowsState: .close)
 
-var car2 = Car (year: 10, model: .renault, luggageCapacity: 35.0, luggageCapacityBusy: 5, engineState: .kill, windowsState: .open)
+var car2 = Car (year: 2008, model: .renault, luggageCapacity: 35.0, luggageCapacityBusy: 5, engineState: .kill, windowsState: .open)
 
-var truck1 = Truck (year: 1, model: .mercedes, bodyCapacity: 350.0, bodyCapacityBusy: 50, engineState: .run, windowsState: .open)
+var truck1 = Truck (year: 2000, model: .mercedes, bodyCapacity: 350.0, bodyCapacityBusy: 50, engineState: .run, windowsState: .open)
 
 //применяем различные действия к структурам
 car1.engineState = .kill
@@ -160,3 +165,9 @@ car1.editPropirtiesStuct(edit: .runEngine)
 truck1.editPropirtiesStuct(edit: .openWindows)
 car2.luggageCapacityBusy = 60
 truck1.bodyCapacityBusy = -5
+car2.luggageCapacityBusy = 10
+truck1.bodyCapacityBusy = 85
+//Выводим значения свойств экземпляров в консоль.
+car1.printProperties()
+car2.printProperties()
+truck1.printProperties()
