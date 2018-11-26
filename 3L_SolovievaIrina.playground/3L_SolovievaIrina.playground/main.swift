@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 // перечисление открыть/закрыть окна
 enum WindowsState {
     case open, close
@@ -19,102 +20,143 @@ enum EngineState {
 enum Model {
     case geely, honda, renault, peugeot, mercedes, kamaz
 }
-//перечисление груза
-//enum Сargo {
-//    case load, unload
-//}
-enum Cargo {
-    case load, unload, leave
-}
-
+//печисление изменение свойств
 enum EditProperties {
-    case openWindow
-    case closeWindow
+    case openWindows
+    case closeWindows
     case runEngine
     case killEngine
-    case loadCargo
-    case unloadCargo
 }
 //структура легковой автомобиль
 struct Car {
     let year: Int
     let model: Model
     let luggageCapacity: Double
-    var luggageCapacityBusy: Double
-    var engineState: EngineState
-    var windowsState: WindowsState
-    var cargo: Cargo
-    
-    //метод открытия окон
+    //отслеживаем загрузку/выгрузку груза из багажника
+    var luggageCapacityBusy: Double{
+        didSet {
+            if (luggageCapacityBusy <= luggageCapacity)&&(luggageCapacityBusy>=0) {
+                let cargo = luggageCapacityBusy - oldValue
+                if cargo > 0{
+                    print ("Загрузили в багажник груз объемом \(cargo)")
+                } else if cargo < 0{
+                    print ("Выгрузили из багажника груз объемом \(abs(cargo))")
+                }else {print ("В багажнике все осталось как было")}
+            }else if (luggageCapacityBusy > luggageCapacity) {
+                print ("В багажнике не достаточно места")
+            } else {print ("В багажнике нет такого большого груза для выгрузки")}
+        }
+    }
+    //отслеживаем изменение свойства двигателя
+    var engineState: EngineState {
+        willSet {
+            if newValue == .run {
+                print("Двигатель сейчас запустится")
+            } else {
+                print("Двигатель сейчас заглушится")
+            }
+        }
+    }
+    //отслеживаем открытие/закрытие окон
+    var windowsState: WindowsState{
+        willSet {
+            if newValue == .open {
+                print("Окна сейчас откроются")
+            } else {
+                print("Окна сейчас закроются")
+            }
+        
+        }
+    }
+    //метод, который меняет свойства структуры в зависимости от действий
     mutating func editPropirtiesStuct(edit: EditProperties) {
         switch edit {
-        case .openWindow:
+        case .openWindows:
             self.windowsState = .open
-        case .closeWindow:
+        case .closeWindows:
             self.windowsState = .close
         case .runEngine:
             self.engineState = .run
         case .killEngine:
             self.engineState = .kill
-        case.loadCargo:
-            self.cargo = .load
-        case.unloadCargo:
-            self.cargo = .unload
-        
         }
     }
     
     
 }
 //структура грузовик
-
 struct Truck {
     let year: Int
     let model: Model
     let bodyCapacity: Double
-    var bodyCapacityBusy: Double
-    var engineState: EngineState
-    var windowsState: WindowsState
-    var cargo: Cargo
+    //отслеживаем загрузку/выгрузку груза из кузова
+    var bodyCapacityBusy: Double {
+        didSet {
+            if (bodyCapacityBusy <= bodyCapacity)&&(bodyCapacityBusy>=0) { //проверяем что загрузили/выгрузили не слишком большой груз
+                let cargo = bodyCapacityBusy - oldValue
+                if cargo > 0{
+                    print ("Загрузили в кузов груз объемом \(cargo)")
+                } else if cargo < 0{
+                    print ("Выгрузили из кузова груз объемом \(abs(cargo))")
+                }else {print ("В кузове все осталось как было")}
+                }else if (bodyCapacityBusy > bodyCapacity) {
+                    print ("В кузове не достаточно места")
+                } else {print ("В кузове нет такого большого груза для выгрузки")}
+        }
+    }
+    //отслеживаем изменение свойства двигателя
     
-    //метод открытия окон
+    var engineState: EngineState{
+        willSet {
+            if newValue == .run {
+                print("Двигатель сейчас запустится")
+            } else {
+                print("Двигатель сейчас заглушится")
+            }
+        }
+    }
+    //отслеживаем открытие/закрытие окон
+    var windowsState: WindowsState{
+        willSet {
+            if newValue == .open {
+                print("Окна сейчас откроются")
+            } else {
+                print("Окна сейчас закроются")
+            }
+        }
+    }
+
+    //метод, который меняет свойства структуры в зависимости от действий
     mutating func editPropirtiesStuct(edit: EditProperties) {
         switch edit {
-        case .openWindow:
+        case .openWindows:
             self.windowsState = .open
-        case .closeWindow:
+        case .closeWindows:
             self.windowsState = .close
         case .runEngine:
             self.engineState = .run
         case .killEngine:
             self.engineState = .kill
-        case.loadCargo:
-            self.cargo = .load
-        case.unloadCargo:
-            self.cargo = .unload
-            
         }
     }
 }
 
-var car1 = Car (year: 4, model: .geely, luggageCapacity: 30.0, luggageCapacityBusy: 20.5, engineState: .run, windowsState: .close, cargo: .leave)
+// инициализация нескольки экземпляров структур
+var car1 = Car (year: 4, model: .geely, luggageCapacity: 30.0, luggageCapacityBusy: 20.5, engineState: .run, windowsState: .close)
 
-var car2 = Car (year: 10, model: .renault, luggageCapacity: 35.0, luggageCapacityBusy: 5, engineState: .kill, windowsState: .open, cargo: .leave)
+var car2 = Car (year: 10, model: .renault, luggageCapacity: 35.0, luggageCapacityBusy: 5, engineState: .kill, windowsState: .open)
 
-var truck1 = Truck (year: 1, model: .mercedes, bodyCapacity: 350.0, bodyCapacityBusy: 50, engineState: .run, windowsState: .open, cargo: .leave)
+var truck1 = Truck (year: 1, model: .mercedes, bodyCapacity: 350.0, bodyCapacityBusy: 50, engineState: .run, windowsState: .open)
 
+//применяем различные действия к структурам
 car1.engineState = .kill
 car1.windowsState = .open
-car2.cargo = .load
+car1.luggageCapacityBusy = 20
 car2.engineState = .run
 truck1.windowsState = .close
-truck1.cargo = .unload
+truck1.bodyCapacityBusy = 63
 truck1.engineState = .kill
-
-
-
-
-
-
-
-
+car1.editPropirtiesStuct(edit: .runEngine)
+truck1.editPropirtiesStuct(edit: .openWindows)
+car2.luggageCapacityBusy = 60
+truck1.bodyCapacityBusy = -5
