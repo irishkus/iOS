@@ -33,21 +33,17 @@ struct Car {
     let model: Model
     let luggageCapacity: Double
     //отслеживаем загрузку/выгрузку груза из багажника
-    var luggageCapacityBusy: Double{
+    var luggageCapacityBusy: Double {
         didSet {
-            if (luggageCapacityBusy <= luggageCapacity)&&(luggageCapacityBusy>=0) {
-                let cargo = luggageCapacityBusy - oldValue
-                if cargo > 0{
-                    print ("Загрузили в багажник груз объемом \(cargo)")
-                } else if cargo < 0{
-                    print ("Выгрузили из багажника груз объемом \(abs(cargo))")
-                }else {print ("В багажнике все осталось как было")}
-            }else if (luggageCapacityBusy > luggageCapacity) {
-                print ("В багажнике не достаточно места")
-            } else {print ("В багажнике нет такого большого груза для выгрузки")}
+            let cargo = luggageCapacityBusy - oldValue
+            if cargo > 0 {
+                print ("Загрузили в багажник груз объемом \(cargo)")
+            } else if cargo < 0 {
+                print ("Выгрузили из багажника груз объемом \(abs(cargo))")
+            } else {print ("В багажнике все осталось как было")}
         }
     }
-    //отслеживаем изменение свойства двигателя
+    //отслеживаем запуск/остановку двигателя
     var engineState: EngineState {
         willSet {
             if newValue == .run {
@@ -94,21 +90,16 @@ struct Truck {
     //отслеживаем загрузку/выгрузку груза из кузова
     var bodyCapacityBusy: Double {
         didSet {
-            if (bodyCapacityBusy <= bodyCapacity)&&(bodyCapacityBusy>=0) { //проверяем что загрузили/выгрузили не слишком большой груз
-                let cargo = bodyCapacityBusy - oldValue
-                if cargo > 0{
-                    print ("Загрузили в кузов груз объемом \(cargo)")
-                } else if cargo < 0{
-                    print ("Выгрузили из кузова груз объемом \(abs(cargo))")
-                }else {print ("В кузове все осталось как было")}
-                }else if (bodyCapacityBusy > bodyCapacity) {
-                    print ("В кузове не достаточно места")
-                } else {print ("В кузове нет такого большого груза для выгрузки")}
+            let cargo = bodyCapacityBusy - oldValue
+            if cargo > 0 {
+                print ("Загрузили в кузов груз объемом \(cargo)")
+            } else if cargo < 0 {
+                print ("Выгрузили из кузова груз объемом \(abs(cargo))")
+            } else {print ("В кузове все осталось как было")}
         }
     }
-    //отслеживаем изменение свойства двигателя
-    
-    var engineState: EngineState{
+    //отслеживаем запуск/остановку двигателя
+    var engineState: EngineState {
         willSet {
             if newValue == .run {
                 print("Двигатель сейчас запустится")
@@ -118,7 +109,7 @@ struct Truck {
         }
     }
     //отслеживаем открытие/закрытие окон
-    var windowsState: WindowsState{
+    var windowsState: WindowsState {
         willSet {
             if newValue == .open {
                 print("Окна сейчас откроются")
@@ -163,8 +154,6 @@ truck1.bodyCapacityBusy = 63
 truck1.engineState = .kill
 car1.editPropirtiesStuct(edit: .runEngine)
 truck1.editPropirtiesStuct(edit: .openWindows)
-car2.luggageCapacityBusy = 60
-truck1.bodyCapacityBusy = -5
 car2.luggageCapacityBusy = 10
 truck1.bodyCapacityBusy = 85
 //Выводим значения свойств экземпляров в консоль.
