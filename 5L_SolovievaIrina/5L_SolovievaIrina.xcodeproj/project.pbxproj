@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C3AA10B21A5A20700EEC030 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3AA10A21A5A20700EEC030 /* main.swift */; };
-		8C3AA11221A9830D00EEC030 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3AA11121A9830D00EEC030 /* main.swift */; };
+		8C1C00C721B584D400835AF9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C00C621B584D400835AF9 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8C3AA10521A5A20700EEC030 /* CopyFiles */ = {
+		8C1C00C121B584D400835AF9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,13 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C3AA10721A5A20700EEC030 /* 2l_SolovievaIrina.playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 2l_SolovievaIrina.playground; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C3AA10A21A5A20700EEC030 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		8C3AA11121A9830D00EEC030 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = ../../../Documents/main.swift; sourceTree = "<group>"; };
+		8C1C00C321B584D400835AF9 /* 5L_SolovievaIrina */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 5L_SolovievaIrina; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1C00C621B584D400835AF9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C3AA10421A5A20700EEC030 /* Frameworks */ = {
+		8C1C00C021B584D400835AF9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,97 +38,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C3AA0FE21A5A20700EEC030 = {
+		8C1C00BA21B584D400835AF9 = {
 			isa = PBXGroup;
 			children = (
-				8C3AA10921A5A20700EEC030 /* 2l_SolovievaIrina.playground */,
-				8C3AA10821A5A20700EEC030 /* Products */,
+				8C1C00C521B584D400835AF9 /* 5L_SolovievaIrina */,
+				8C1C00C421B584D400835AF9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8C3AA10821A5A20700EEC030 /* Products */ = {
+		8C1C00C421B584D400835AF9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C3AA10721A5A20700EEC030 /* 2l_SolovievaIrina.playground */,
+				8C1C00C321B584D400835AF9 /* 5L_SolovievaIrina */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C3AA10921A5A20700EEC030 /* 2l_SolovievaIrina.playground */ = {
+		8C1C00C521B584D400835AF9 /* 5L_SolovievaIrina */ = {
 			isa = PBXGroup;
 			children = (
-				8C3AA10A21A5A20700EEC030 /* main.swift */,
-				8C3AA11121A9830D00EEC030 /* main.swift */,
+				8C1C00C621B584D400835AF9 /* main.swift */,
 			);
-			path = 2l_SolovievaIrina.playground;
+			path = 5L_SolovievaIrina;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C3AA10621A5A20700EEC030 /* 2l_SolovievaIrina.playground */ = {
+		8C1C00C221B584D400835AF9 /* 5L_SolovievaIrina */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C3AA10E21A5A20700EEC030 /* Build configuration list for PBXNativeTarget "2l_SolovievaIrina.playground" */;
+			buildConfigurationList = 8C1C00CA21B584D400835AF9 /* Build configuration list for PBXNativeTarget "5L_SolovievaIrina" */;
 			buildPhases = (
-				8C3AA10321A5A20700EEC030 /* Sources */,
-				8C3AA10421A5A20700EEC030 /* Frameworks */,
-				8C3AA10521A5A20700EEC030 /* CopyFiles */,
+				8C1C00BF21B584D400835AF9 /* Sources */,
+				8C1C00C021B584D400835AF9 /* Frameworks */,
+				8C1C00C121B584D400835AF9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = 2l_SolovievaIrina.playground;
-			productName = 2l_SolovievaIrina.playground;
-			productReference = 8C3AA10721A5A20700EEC030 /* 2l_SolovievaIrina.playground */;
+			name = 5L_SolovievaIrina;
+			productName = 5L_SolovievaIrina;
+			productReference = 8C1C00C321B584D400835AF9 /* 5L_SolovievaIrina */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8C3AA0FF21A5A20700EEC030 /* Project object */ = {
+		8C1C00BB21B584D400835AF9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Ирина";
 				TargetAttributes = {
-					8C3AA10621A5A20700EEC030 = {
+					8C1C00C221B584D400835AF9 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
-			buildConfigurationList = 8C3AA10221A5A20700EEC030 /* Build configuration list for PBXProject "2l_SolovievaIrina.playground" */;
+			buildConfigurationList = 8C1C00BE21B584D400835AF9 /* Build configuration list for PBXProject "5L_SolovievaIrina" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 8C3AA0FE21A5A20700EEC030;
-			productRefGroup = 8C3AA10821A5A20700EEC030 /* Products */;
+			mainGroup = 8C1C00BA21B584D400835AF9;
+			productRefGroup = 8C1C00C421B584D400835AF9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C3AA10621A5A20700EEC030 /* 2l_SolovievaIrina.playground */,
+				8C1C00C221B584D400835AF9 /* 5L_SolovievaIrina */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C3AA10321A5A20700EEC030 /* Sources */ = {
+		8C1C00BF21B584D400835AF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C3AA11221A9830D00EEC030 /* main.swift in Sources */,
-				8C3AA10B21A5A20700EEC030 /* main.swift in Sources */,
+				8C1C00C721B584D400835AF9 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8C3AA10C21A5A20700EEC030 /* Debug */ = {
+		8C1C00C821B584D400835AF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -191,7 +187,7 @@
 			};
 			name = Debug;
 		};
-		8C3AA10D21A5A20700EEC030 /* Release */ = {
+		8C1C00C921B584D400835AF9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -245,7 +241,7 @@
 			};
 			name = Release;
 		};
-		8C3AA10F21A5A20700EEC030 /* Debug */ = {
+		8C1C00CB21B584D400835AF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -255,7 +251,7 @@
 			};
 			name = Debug;
 		};
-		8C3AA11021A5A20700EEC030 /* Release */ = {
+		8C1C00CC21B584D400835AF9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -268,25 +264,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C3AA10221A5A20700EEC030 /* Build configuration list for PBXProject "2l_SolovievaIrina.playground" */ = {
+		8C1C00BE21B584D400835AF9 /* Build configuration list for PBXProject "5L_SolovievaIrina" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C3AA10C21A5A20700EEC030 /* Debug */,
-				8C3AA10D21A5A20700EEC030 /* Release */,
+				8C1C00C821B584D400835AF9 /* Debug */,
+				8C1C00C921B584D400835AF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C3AA10E21A5A20700EEC030 /* Build configuration list for PBXNativeTarget "2l_SolovievaIrina.playground" */ = {
+		8C1C00CA21B584D400835AF9 /* Build configuration list for PBXNativeTarget "5L_SolovievaIrina" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C3AA10F21A5A20700EEC030 /* Debug */,
-				8C3AA11021A5A20700EEC030 /* Release */,
+				8C1C00CB21B584D400835AF9 /* Debug */,
+				8C1C00CC21B584D400835AF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8C3AA0FF21A5A20700EEC030 /* Project object */;
+	rootObject = 8C1C00BB21B584D400835AF9 /* Project object */;
 }
