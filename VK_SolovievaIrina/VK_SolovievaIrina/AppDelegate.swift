@@ -11,14 +11,36 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+        
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
+    
+    
+//   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        
+//        // Set up the first View Controller
+//        let vc1 = UIViewController()
+//        vc1.view.backgroundColor = UIColor.orange
+//        vc1.tabBarItem.title = "Fotograf"
+//        vc1.tabBarItem.image = UIImage(named: "foto")
+//        
+//        // Set up the second View Controller
+//        let vc2 = UIViewController()
+//        vc2.view.backgroundColor = UIColor.purple
+//        vc2.tabBarItem.title = "Group"
+//        vc2.tabBarItem.image = UIImage(named: "groups")
+//        
+//        // Set up the Tab Bar Controller to have two tabs
+//        let tabBarController = UITabBarController()
+//        tabBarController.viewControllers = [vc1, vc2]
+//        
+//        // Make the Tab Bar Controller the root view controller
+//        window?.rootViewController = tabBarController
+//        window?.makeKeyAndVisible()
+//        
+//        return true
+//        // Override point for customization after application launch.
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
