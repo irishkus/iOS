@@ -97,6 +97,7 @@ class ViewController: UIViewController {
                                                                attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.7408241666, green: 0.8520424613, blue: 0.9033153553, alpha: 1)])
         passwordInput.attributedPlaceholder = NSAttributedString(string: "Пароль",
                                                               attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.7408241666, green: 0.8520424613, blue: 0.9033153553, alpha: 1)])
+
         }
 
     
@@ -117,7 +118,7 @@ class ViewController: UIViewController {
         let login = loginInput.text!
         let password = passwordInput.text!
         
-        if login == "admin" && password == "123456" {
+        if login == " " && password == " " {
             return true
         } else {
             return false
