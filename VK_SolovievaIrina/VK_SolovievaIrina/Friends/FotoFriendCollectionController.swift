@@ -11,48 +11,15 @@ import UIKit
 class FotoFriendCollectionController: UICollectionViewController {
     var fotoDelegate: [String] = []
     var foto: [String] = []
-//    @IBAction func allFoto(segue: UIStoryboardSegue) {
-//        // Проверяем идентификатор, чтобы убедится, что это нужный переход
-//        if segue.identifier == "allFotoFriend" {
-//            // Получаем ссылку на контроллер, с которого осуществлен переход
-//            let myFriendsController = segue.source as! MyFriendsController
-//            
-//            // Получаем индекс выделенной ячейки
-//            if let indexPath = myFriendsController.tableView.indexPathForSelectedRow {
-//                // Получаем город по индексу
-//                let friend = myFriendsController.myFriends[indexPath.row]
-//                fotoDelegate = myFriendsController.fotoMyFriends[friend] as! [String]
-//            }
-//            
-//        }
-//        
-//    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "allFotoFriend" {
-//            // Получаем ссылку на контроллер, с которого осуществлен переход
-//            let myFriendsController = segue.source as! MyFriendsController
-//
-//            // Получаем индекс выделенной ячейки
-//            if let indexPath = myFriendsController.tableView.indexPathForSelectedRow {
-//                // Получаем город по индексу
-//                let friend = myFriendsController.myFriends[indexPath.row]
-//                fotoDelegate = myFriendsController.fotoMyFriends[friend] as! [String]
-//            }
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         foto = fotoDelegate
-        print("Фото")
-        print(foto.count)
-//        print(deleg.fotoMyFriends.count)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -82,11 +49,8 @@ class FotoFriendCollectionController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FotoCell", for: indexPath) as! FotoCollectionCell
-        // Устанавливаем город в надпись ячейки
         let foto = fotoDelegate[indexPath.row]
-        print(foto)
         cell.allFoto.image = UIImage(named: foto)
-
         return cell
     }
 

@@ -194,26 +194,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PcE-jj-zVV">
-                            <size key="itemSize" width="150" height="150"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="2" id="PcE-jj-zVV">
+                            <size key="itemSize" width="165" height="105"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FotoCell" id="zIR-3l-NRT" customClass="FotoCollectionCell" customModule="VK_SolovievaIrina" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="165" height="105"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="165" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoL-mB-bns">
-                                            <rect key="frame" x="20" y="9" width="160" height="149"/>
+                                            <rect key="frame" x="8" y="8" width="164" height="105"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <size key="customSize" width="165" height="105"/>
                                 <connections>
                                     <outlet property="allFoto" destination="xoL-mB-bns" id="dc6-TN-AdI"/>
                                 </connections>
@@ -291,10 +292,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="JD4-es-1bi">
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="sxb-lk-oOb">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" red="0.74082416659999994" green="0.85204246130000005" blue="0.90331535529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="barTintColor" red="0.32188650680000003" green="0.51097913139999995" blue="0.71499646969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Etx-XQ-VXJ" id="kPE-34-jTb"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGroupCell" rowHeight="90" id="doB-4C-wJV" customClass="AllGroupsCell" customModule="VK_SolovievaIrina" customModuleProvider="target">
@@ -331,20 +337,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Список всех групп" id="vFk-bN-7aj"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="9E1-R9-E23" id="v7g-gU-3SW"/>
+                        <outlet property="searchBar" destination="sxb-lk-oOb" id="ZFm-Mp-dqC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWR-4U-6Ct" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1Mg-DW-q1Y" userLabel="Exit" sceneMemberID="exit"/>
-                <searchDisplayController id="9E1-R9-E23">
-                    <connections>
-                        <outlet property="delegate" destination="Etx-XQ-VXJ" id="slj-F5-P7O"/>
-                        <outlet property="searchBar" destination="JD4-es-1bi" id="vTP-pK-RHA"/>
-                        <outlet property="searchContentsController" destination="Etx-XQ-VXJ" id="d22-ah-8zA"/>
-                        <outlet property="searchResultsDataSource" destination="Etx-XQ-VXJ" id="MSp-Qf-uyf"/>
-                        <outlet property="searchResultsDelegate" destination="Etx-XQ-VXJ" id="O3W-yV-hM0"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="7189.6000000000004" y="499.70014992503752"/>
         </scene>

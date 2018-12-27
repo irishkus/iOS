@@ -15,20 +15,7 @@ class MyFriendsController: UITableViewController {
     var fotoDelegate = [String]()
     
     var myFriends = ["Иван Иванов", "Петр Петров", "Сидор Сидоров"]
-    var fotoMyFriends = ["Иван Иванов": ["vk_logo","yellow", "red", "rose"], "Петр Петров": ["friend","green", "fir", "line"], "Сидор Сидоров": ["groups","orange", "blue", "heart"]]
-
-//   override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    print("нажата строка № \(indexPath.row) в секции \(indexPath.section)")
-//    let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! MyFriendsCell
-//    let friend = myFriends[indexPath.row]
-//    cell.friendName.text = friend
-//
-//    if let fotoDelegate = fotoMyFriends[friend] {
-//        print (fotoDelegate)
-//    }
-//
-//    }
-    
+    var fotoMyFriends = ["Иван Иванов": ["vk_logo","yellow", "red", "rose"], "Петр Петров": ["friend","green", "fir", "line"], "Сидор Сидоров": ["groups","orange", "blue", "heart"]]    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +44,8 @@ class MyFriendsController: UITableViewController {
         let friend = myFriends[indexPath.row]
         cell.friendName.text = friend
         if let nameAvatar = fotoMyFriends[friend]?.last {
-        let photo = UIImage(named: nameAvatar)
-        cell.fotoFriend.image = photo
-        // Configure the cell...
+            let photo = UIImage(named: nameAvatar)
+            cell.fotoFriend.image = photo
         }
         return cell
       
@@ -67,16 +53,16 @@ class MyFriendsController: UITableViewController {
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "allFotoFriend" {
-            let myFriendsController2 : FotoFriendCollectionController = segue.destination as! FotoFriendCollectionController
+            let fotoFriendsController : FotoFriendCollectionController = segue.destination as! FotoFriendCollectionController
             let myFriendsController = segue.source as! MyFriendsController
            //  Получаем индекс выделенной ячейки
             if let indexPath = myFriendsController.tableView.indexPathsForSelectedRows {
-                print(indexPath[0].row)
                 // Получаем друга по индексу
                 let friend = myFriendsController.myFriends[indexPath[0].row]
-                fotoDelegate = myFriendsController.fotoMyFriends[friend] as! [String]
-            myFriendsController2.fotoDelegate = fotoDelegate
-            print(myFriendsController2.fotoDelegate)
+                if let fotoDelegate = myFriendsController.fotoMyFriends[friend] as? [String] {
+            fotoFriendsController.fotoDelegate = fotoDelegate
+            print(fotoFriendsController.fotoDelegate)
+                }
             }
         }
     }

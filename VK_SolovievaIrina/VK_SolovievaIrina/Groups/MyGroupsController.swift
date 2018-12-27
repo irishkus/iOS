@@ -15,7 +15,7 @@ class MyGroupsController: UITableViewController {
         if segue.identifier == "addGroup" {
             // Получаем ссылку на контроллер, с которого осуществлен переход
             let allGroupsController = segue.source as! AllGroupsController
-            
+
             // Получаем индекс выделенной ячейки
             if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
                 // Получаем город по индексу
@@ -30,7 +30,7 @@ class MyGroupsController: UITableViewController {
                     tableView.reloadData()
                 }
             }
-            
+
         }
 
     }
