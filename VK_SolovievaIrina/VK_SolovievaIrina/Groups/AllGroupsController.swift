@@ -39,13 +39,18 @@ class AllGroupsController: UITableViewController, UISearchBarDelegate {
 
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
             filteredGroup = allGroups.filter({(text) -> Bool in
             let tmp: NSString = text as NSString
             let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
             return range.location != NSNotFound
             })
-        searchActive = true
-        tableView.reloadData()
+            searchActive = true
+            tableView.reloadData()}
+        else {
+            searchActive = false
+            tableView.reloadData()
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -74,7 +74,7 @@ class MyGroupsController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // Если была нажата кнопка «Удалить»
         if editingStyle == .delete {
-            // Удаляем город из массива
+            // Удаляем группу из массива
             let keyGroup = myGroups[indexPath.row]
             myGroups.remove(at: indexPath.row)
             myGroupsFoto.removeValue(forKey: keyGroup)

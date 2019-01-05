@@ -14,6 +14,8 @@ class MyFriendsCell: UITableViewCell {
   //  @IBOutlet var allFoto: [MyFriendsCell]!
     @IBOutlet weak var fotoFriend: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    
+    
   //  @IBAction weak var allFoto: MyFriendsCell!
 //    
 //   @IBAction func allFoto(segue: UIStoryboardSegue)
