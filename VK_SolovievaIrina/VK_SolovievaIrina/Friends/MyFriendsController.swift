@@ -10,64 +10,16 @@ import UIKit
 
 
 
-@IBDesignable class MyFriendsController: UITableViewController {
+ class MyFriendsController: UITableViewController {
     
     var fotoDelegate = [String]()
-    
-    class var layerClass: AnyClass {
-        return CAShapeLayer.self
-    }
-    
-    @IBInspectable var shadowOffset: CGSize = CGSize(width: 3, height: 3)
-    
-    /// Прозрачность тени
-    @IBInspectable var shadowOpacity: Float = 0.3
-    
-    /// Радиус блура тени
-    @IBInspectable var shadowRadius: CGFloat = 10 {
-        didSet {
-        self.updateFocusIfNeeded()
-        }
-    }
-    
-    /// Цвет тени
-//    @IBInspectable var shadowColor: UIColor? {
-//        set { tableView.layer.shadowColor = newValue?.cgColor }
-//        get { return tableView.layer.shadowColor?.cgColor }
-//    }
-    
-//    @IBInspectable var shadowRadius: CGFloat {
-//         set { tableView.layer.shadowRadius = newValue }
-//         get { return tableView.layer.shadowRadius }
-//    }
 
-    var myFriends = ["Иван Иванов", "Петр Петров", "Сидор Сидоров"]
-    var fotoMyFriends = ["Иван Иванов": ["vk_logo","yellow", "red", "rose"], "Петр Петров": ["friend","green", "fir", "line"], "Сидор Сидоров": ["groups","orange", "blue", "heart"]]    
+    var myFriends = ["Иванов Иван", "Петров Петр", "Сидоров Сидор", "Субботин Андрей", "Соколов Дмитрий", "Смирнов Станислав", "Суворов Петр", "Павлова Арина", "Полякова Диана", "Петухов Александр", "Устинова Татьяна", "Ургант Валерий", "Уваров Денис", "Исаев Алексей", "Искакова Галина", "Ильина Екатерина", "Панов Евгений", "Павлова Анастасия", "Потапов Сергей", "Пестов Юрий", "Попова Евгения"]
+    var fotoMyFriends = ["Иванов Иван": ["vk_logo","yellow", "red", "rose"], "Петров Петр": ["friend","green", "fir", "line"], "Сидоров Сидор": ["groups","orange", "blue", "heart"], "Субботин Андрей": ["yellow", "red"], "Соколов Дмитрий": ["green", "fir"], "Смирнов Станислав":["orange", "blue"], "Суворов Петр":["orange", "rose"], "Павлова Арина": ["orange"], "Полякова Диана": ["vk_logo","yellow"], "Петухов Александр": ["friend", "green"], "Устинова Татьяна": ["vk_logo"], "Ургант Валерий": ["friend"], "Уваров Денис": ["groups"], "Исаев Алексей": ["red"], "Искакова Галина": ["green"], "Ильина Екатерина": ["heart"], "Панов Евгений": ["line"], "Павлова Анастасия": ["yellow"], "Потапов Сергей": ["fir"], "Пестов Юрий": ["noLike"], "Попова Евгения": ["like"]]
     
-
-//    class ImageWithShadow: UIImageView {
-//        
-//        override func draw(_ rect: CGRect) {
-//            updateLayerProperties()
-//        }
-//        
-//        func updateLayerProperties() {
-//            self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-//            self.layer.shadowOffset = CGSize(width: 0, height: 2)
-//            self.layer.shadowOpacity = 0.5
-//            self.layer.shadowRadius = 8.0
-//            self.layer.masksToBounds = false
-//        }
-//        
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
@@ -91,9 +43,9 @@ import UIKit
         if let nameAvatar = fotoMyFriends[friend]?.last {
             cell.fotoFriend.backgroundColor = UIColor.clear
             cell.fotoFriend.layer.shadowColor = UIColor.black.cgColor
-            cell.fotoFriend.layer.shadowOffset = shadowOffset
-            cell.fotoFriend.layer.shadowOpacity = shadowOpacity
-            cell.fotoFriend.layer.shadowRadius = shadowRadius
+            cell.fotoFriend.layer.shadowOffset = cell.shadowOffset
+            cell.fotoFriend.layer.shadowOpacity = cell.shadowOpacity
+            cell.fotoFriend.layer.shadowRadius = cell.shadowRadius
             cell.fotoFriend.layer.masksToBounds = false
             
             // add subview
@@ -124,70 +76,13 @@ import UIKit
                 let friend = myFriendsController.myFriends[indexPath[0].row]
                 if let fotoDelegate = myFriendsController.fotoMyFriends[friend] as? [String] {
                     fotoFriendsController.fotoDelegate = fotoDelegate
-                    print(fotoFriendsController.fotoDelegate)
                 }
             }
         }
     }
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     
 }
 
 
-//extension MyFriendsController {
-//    @IBInspectable var cornerRadius: CGFloat {
-//        get {
-//            return layer.cornerRadius
-//        }
-//        set {
-//            layer.cornerRadius = newValue
-//            layer.masksToBounds = newValue > 0
-//        }
-//    }
-//}
 
 

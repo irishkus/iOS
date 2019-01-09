@@ -1,17 +1,25 @@
 //
-//  MyGroupCell.swift
+//  MyNewsCell.swift
 //  VK_SolovievaIrina
 //
-//  Created by Ирина on 25.12.2018.
-//  Copyright © 2018 Ирина. All rights reserved.
+//  Created by Ирина on 07.01.2019.
+//  Copyright © 2019 Ирина. All rights reserved.
 //
 
 import UIKit
 
-class MyGroupCell: UITableViewCell {
+class MyNewsCell: UITableViewCell {
 
-    @IBOutlet weak var fotoGroup: UIImageView!
-    @IBOutlet weak var groupName: UILabel!
+ //   @IBOutlet weak var gpoupNewsFoto: UIImageView!
+    
+//    @IBOutlet weak var groupNewsFoto: UIImageView!
+//    @IBOutlet weak var groupNewsName: UILabel!
+//    @IBOutlet weak var textNews: UILabel!
+
+    @IBOutlet weak var textNews: UILabel!
+    @IBOutlet weak var groupNewsName: UILabel!
+    @IBOutlet weak var groupNewsFoto: UIImageView!
+    @IBOutlet weak var likeCell: LikeControl!
     
     @IBInspectable var shadowOffset: CGSize = CGSize(width: 3, height: 3)
     //        {

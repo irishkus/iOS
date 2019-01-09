@@ -8,49 +8,38 @@
 
 import UIKit
 
-class MyFriendsCell: UITableViewCell {
+@IBDesignable class MyFriendsCell: UITableViewCell {
 
     @IBOutlet var allFoto: [MyFriendsCell]!
-  //  @IBOutlet var allFoto: [MyFriendsCell]!
-    @IBOutlet weak var fotoFriend: UIImageView!
+
     @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var fotoFriend: UIImageView!
     
+    override class var layerClass: AnyClass {
+        return CAShapeLayer.self
+    }
     
-  //  @IBAction weak var allFoto: MyFriendsCell!
-//    
-//   @IBAction func allFoto(segue: UIStoryboardSegue)
-//   {
-//        
-//        // Проверяем идентификатор, чтобы убедится, что это нужный переход
-//        if segue.identifier == "AllFoto" {
-//            // Получаем ссылку на контроллер, с которого осуществлен переход
-//            let myFriendsController = segue.source as! MyFriendsController
-//            // Получаем индекс выделенной ячейки
-//            if let indexPath = myFriendsController.tableView.indexPathForSelectedRow {
-//                // Получаем друга по индексу
-//            let friend = myFriendsController.myFriends[indexPath.row]
-//                // Добавляем город в список выбранных городов
-//            cities.append(city)
-//                // Обновляем таблицу
-//            
-//            tableView.reloadData()
-//            }
-//            
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 3, height: 3)
+//        {
+//        didSet {
+//            setNeedsDisplay()
 //        }
-//        
 //    }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! MyFriendsCell
-//        let friend = myFriends[indexPath.row]
-//        cell.friendName.text = friend
-//        if let nameAvatar = fotoMyFriends[friend]?.last {
-//            let photo = UIImage(named: nameAvatar)
-//            cell.fotoFriend.image = photo
-//            // Configure the cell...
+    /// Прозрачность тени
+    @IBInspectable var shadowOpacity: Float = 0.3
+//        {
+//        didSet {
+//            setNeedsDisplay()
 //        }
-//        return cell
-//
+//    }
+    
+    /// Радиус блура тени
+    @IBInspectable var shadowRadius: CGFloat = 10
+//        {
+//        didSet {
+//            setNeedsDisplay()
+//        }
 //    }
     
     override func awakeFromNib() {
