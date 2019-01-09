@@ -460,28 +460,28 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGroupCell" rowHeight="90" id="doB-4C-wJV" customClass="AllGroupsCell" customModule="VK_SolovievaIrina" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGroupCell" rowHeight="100" id="doB-4C-wJV" customClass="AllGroupsCell" customModule="VK_SolovievaIrina" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="doB-4C-wJV" id="Brg-1p-gNL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tz5-UT-RIe">
-                                            <rect key="frame" x="10" y="8" width="80" height="80"/>
+                                            <rect key="frame" x="10" y="8" width="80" height="80.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="z7Q-KB-JjP"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="251" horizontalCompressionResistancePriority="744" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czp-tL-VQF">
-                                            <rect key="frame" x="110" y="10" width="255" height="31.5"/>
+                                            <rect key="frame" x="110" y="10" width="255" height="41.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Tz5-UT-RIe" secondAttribute="bottom" constant="1.5" id="0sf-MZ-D9A"/>
+                                        <constraint firstAttribute="bottom" secondItem="Tz5-UT-RIe" secondAttribute="bottom" constant="11" id="0sf-MZ-D9A"/>
                                         <constraint firstItem="czp-tL-VQF" firstAttribute="leading" secondItem="Tz5-UT-RIe" secondAttribute="trailing" constant="20" id="J43-Gv-JXZ"/>
                                         <constraint firstItem="czp-tL-VQF" firstAttribute="top" secondItem="Brg-1p-gNL" secondAttribute="top" constant="10" id="SHI-l5-R5v"/>
                                         <constraint firstAttribute="trailing" secondItem="czp-tL-VQF" secondAttribute="trailing" constant="10" id="g81-Ku-DIa"/>

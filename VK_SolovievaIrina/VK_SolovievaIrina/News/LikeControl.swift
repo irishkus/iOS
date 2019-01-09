@@ -98,8 +98,6 @@ import UIKit
         
     }
     
-    
-    
     @objc func likeButtonTapped(button: UIButton) {
 //        guard let like = ratingMyNews[] else {
 //            fatalError("The button, \(button), is not in the ratingButtons array: \(ratingMyNews)")

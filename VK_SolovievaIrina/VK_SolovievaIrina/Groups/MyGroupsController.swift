@@ -19,7 +19,7 @@ class MyGroupsController: UITableViewController {
             // Получаем индекс выделенной ячейки
             if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
                 // Получаем город по индексу
-                let group = allGroupsController.allGroups[indexPath.row] //allGroups[indexPath.row]
+                let group = allGroupsController.allGroups[indexPath.row] 
                 let groupFoto = allGroupsController.allGroupsFoto[group]
                 // Добавляем город в список выбранных городов
                 if !myGroups.contains(group) {
