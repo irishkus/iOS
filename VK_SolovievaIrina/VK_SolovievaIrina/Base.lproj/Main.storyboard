@@ -130,9 +130,9 @@
                         <color key="selectedImageTintColor" red="0.3631386439" green="0.58783451620000005" blue="0.82199202810000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="J4f-nt-U5C" kind="relationship" relationship="viewControllers" id="T3L-V4-daR"/>
                         <segue destination="ecb-bM-Qan" kind="relationship" relationship="viewControllers" id="wCj-UI-qNF"/>
                         <segue destination="npH-Ia-6U1" kind="relationship" relationship="viewControllers" id="24Q-y6-kUq"/>
+                        <segue destination="J4f-nt-U5C" kind="relationship" relationship="viewControllers" id="nox-SI-1cQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvb-fM-Z1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,7 +252,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="AfP-At-wu1" customClass="MyFriendsCell" customModule="VK_SolovievaIrina" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="90" id="AfP-At-wu1" customClass="MyFriendsCell" customModule="VK_SolovievaIrina" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AfP-At-wu1" id="rlI-DM-KbW">

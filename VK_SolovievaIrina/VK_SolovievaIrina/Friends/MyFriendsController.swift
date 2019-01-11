@@ -16,7 +16,7 @@ import UIKit
 
     var myFriends = ["Иванов Иван", "Петров Петр", "Сидоров Сидор", "Субботин Андрей", "Соколов Дмитрий", "Смирнов Станислав", "Суворов Петр", "Павлова Арина", "Полякова Диана", "Петухов Александр", "Устинова Татьяна", "Ургант Валерий", "Уваров Денис", "Исаев Алексей", "Искакова Галина", "Ильина Екатерина", "Панов Евгений", "Павлова Анастасия", "Потапов Сергей", "Пестов Юрий", "Попова Евгения"]
     var fotoMyFriends = ["Иванов Иван": ["vk_logo","yellow", "red", "rose"], "Петров Петр": ["friend","green", "fir", "line"], "Сидоров Сидор": ["groups","orange", "blue", "heart"], "Субботин Андрей": ["yellow", "red"], "Соколов Дмитрий": ["green", "fir"], "Смирнов Станислав":["orange", "blue"], "Суворов Петр":["orange", "rose"], "Павлова Арина": ["orange"], "Полякова Диана": ["vk_logo","yellow"], "Петухов Александр": ["friend", "green"], "Устинова Татьяна": ["vk_logo"], "Ургант Валерий": ["friend"], "Уваров Денис": ["groups"], "Исаев Алексей": ["red"], "Искакова Галина": ["green"], "Ильина Екатерина": ["heart"], "Панов Евгений": ["line"], "Павлова Анастасия": ["yellow"], "Потапов Сергей": ["fir"], "Пестов Юрий": ["noLike"], "Попова Евгения": ["like"]]
-    var characters: [Character] = ["И", "П", "С", "У"]
+    var characters: [String] = ["И", "П", "С", "У"]
     var myFriendsCharacter = ["Иванов Иван", "Петров Петр", "Сидоров Сидор", "Субботин Андрей"]
     
     override func viewDidLoad() {
@@ -33,13 +33,13 @@ import UIKit
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == characters[section] }
+        myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[section]) }
         return myFriendsCharacter.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == characters[indexPath.section] }
+        myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
      //   myFriendsCharacter = myFriends.filter {$0.contains(characters[indexPath.section]) }
 //        print("после сортировки \(myFriendsCharacter)")
 //
@@ -72,6 +72,10 @@ import UIKit
         return cell
         
     }
+
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return characters
+    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return String(characters[section])
@@ -83,11 +87,10 @@ import UIKit
             let myFriendsController = segue.source as! MyFriendsController
             //  Получаем индекс выделенной ячейки
             if let indexPath = myFriendsController.tableView.indexPathForSelectedRow {
-                print(indexPath)
-                myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == characters[indexPath.section] }
+                myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
                 // Получаем друга по индексу
                 let friend = myFriendsController.myFriendsCharacter[indexPath.row]
-                if let fotoDelegate = myFriendsController.fotoMyFriends[friend] as? [String] {
+                if let fotoDelegate = myFriendsController.fotoMyFriends[friend] {
                     fotoFriendsController.fotoDelegate = fotoDelegate
                 }
             }

@@ -11,10 +11,14 @@ import UIKit
 @IBDesignable class MyFriendsCell: UITableViewCell {
 
     @IBOutlet var allFoto: [MyFriendsCell]!
-
+//
+//    @IBOutlet weak var friendName: UILabel!
+//    @IBOutlet weak var fotoFriend: UIImageView!
+    
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var fotoFriend: UIImageView!
-    
+   // @IBOutlet weak var friendName: UIView!
+   // @IBOutlet weak var fotoFriend: UIView!
     override class var layerClass: AnyClass {
         return CAShapeLayer.self
     }
