@@ -15,7 +15,6 @@
 		8CAAF36A21C635D5004AA630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAF36821C635D5004AA630 /* LaunchScreen.storyboard */; };
 		8CAAF37521C635D5004AA630 /* VK_SolovievaIrinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAF37421C635D5004AA630 /* VK_SolovievaIrinaTests.swift */; };
 		8CAAF38021C635D5004AA630 /* VK_SolovievaIrinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAF37F21C635D5004AA630 /* VK_SolovievaIrinaUITests.swift */; };
-		8CAAF39221C65180004AA630 /* vk_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAF39121C65180004AA630 /* vk_logo.png */; };
 		8CF24CE921E23E1F006B51D4 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF24CE821E23E1F006B51D4 /* LikeControl.swift */; };
 		8CF24CEB21E2A539006B51D4 /* MyNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF24CEA21E2A539006B51D4 /* MyNewsController.swift */; };
 		8CF24CEF21E2A780006B51D4 /* MyNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF24CEE21E2A780006B51D4 /* MyNewsCell.swift */; };
@@ -61,11 +60,10 @@
 		8CAAF37B21C635D5004AA630 /* VK_SolovievaIrinaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VK_SolovievaIrinaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAAF37F21C635D5004AA630 /* VK_SolovievaIrinaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SolovievaIrinaUITests.swift; sourceTree = "<group>"; };
 		8CAAF38121C635D5004AA630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CAAF39121C65180004AA630 /* vk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vk_logo.png; sourceTree = "<group>"; };
 		8CF24CE821E23E1F006B51D4 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		8CF24CEA21E2A539006B51D4 /* MyNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsController.swift; sourceTree = "<group>"; };
 		8CF24CEE21E2A780006B51D4 /* MyNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsCell.swift; sourceTree = "<group>"; };
-		8CF61E7A21CE298600D9C21A /* MyFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsController.swift; sourceTree = "<group>"; };
+		8CF61E7A21CE298600D9C21A /* MyFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8CF61E8021CE2AD500D9C21A /* FotoFriendCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoFriendCollectionController.swift; sourceTree = "<group>"; };
 		8CF61E8221CE521300D9C21A /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
 		8CF61E8421D0D68300D9C21A /* FotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionCell.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				8CAAF35C21C635D3004AA630 /* AppDelegate.swift */,
 				8CAAF35E21C635D3004AA630 /* ViewController.swift */,
 				8CAAF36021C635D3004AA630 /* Main.storyboard */,
-				8CAAF39121C65180004AA630 /* vk_logo.png */,
 				8CAAF36621C635D5004AA630 /* Assets.xcassets */,
 				8CAAF36821C635D5004AA630 /* LaunchScreen.storyboard */,
 				8CAAF36B21C635D5004AA630 /* Info.plist */,
@@ -295,7 +292,6 @@
 				8CAAF36A21C635D5004AA630 /* LaunchScreen.storyboard in Resources */,
 				8CAAF36721C635D5004AA630 /* Assets.xcassets in Resources */,
 				8CAAF36221C635D3004AA630 /* Main.storyboard in Resources */,
-				8CAAF39221C65180004AA630 /* vk_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

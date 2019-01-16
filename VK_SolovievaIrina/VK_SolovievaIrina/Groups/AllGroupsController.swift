@@ -7,13 +7,13 @@
 //
 
 import UIKit
-
-extension AllGroupsController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
-    }
-}
+//
+//extension AllGroupsController: UISearchResultsUpdating {
+//    // MARK: - UISearchResultsUpdating Delegate
+//    func updateSearchResults(for searchController: UISearchController) {
+//        // TODO
+//    }
+//}
 
 
 class AllGroupsController: UITableViewController, UISearchBarDelegate {
@@ -53,11 +53,11 @@ class AllGroupsController: UITableViewController, UISearchBarDelegate {
         tableView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -96,32 +96,9 @@ class AllGroupsController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupCell", for: indexPath) as! AllGroupsCell
-        //var group = [String]
         if searchActive {
             cell.allGroupName.text = filteredGroup[indexPath.row]
-            if let nameAvatar = allGroupsFoto[filteredGroup[indexPath.row]] {
-                cell.allGroupFoto.backgroundColor = UIColor.clear
-                cell.allGroupFoto.layer.shadowColor = UIColor.black.cgColor
-                cell.allGroupFoto.layer.shadowOffset = cell.shadowOffset
-                cell.allGroupFoto.layer.shadowOpacity = cell.shadowOpacity
-                cell.allGroupFoto.layer.shadowRadius = cell.shadowRadius
-                cell.allGroupFoto.layer.masksToBounds = false
-                
-                // add subview
-                let borderView = UIView(frame: cell.allGroupFoto.bounds)
-                borderView.frame = cell.allGroupFoto.bounds
-                borderView.layer.cornerRadius = 40
-                borderView.layer.masksToBounds = true
-                cell.allGroupFoto.addSubview(borderView)
-                
-                // add subcontent
-                let photo = UIImageView()
-                photo.image = UIImage(named: nameAvatar)
-                photo.frame = borderView.bounds
-                borderView.addSubview(photo)
-            }
-        } else { cell.allGroupName.text = allGroups[indexPath.row]
-        //cell.allGroupName.text = group
+        } else { cell.allGroupName.text = allGroups[indexPath.row]}
         if let nameAvatar = allGroupsFoto[allGroups[indexPath.row]] {
             cell.allGroupFoto.backgroundColor = UIColor.clear
             cell.allGroupFoto.layer.shadowColor = UIColor.black.cgColor
@@ -133,7 +110,7 @@ class AllGroupsController: UITableViewController, UISearchBarDelegate {
             // add subview
             let borderView = UIView(frame: cell.allGroupFoto.bounds)
             borderView.frame = cell.allGroupFoto.bounds
-            borderView.layer.cornerRadius = 40
+            borderView.layer.cornerRadius = 25
             borderView.layer.masksToBounds = true
             cell.allGroupFoto.addSubview(borderView)
             
@@ -143,7 +120,7 @@ class AllGroupsController: UITableViewController, UISearchBarDelegate {
             photo.frame = borderView.bounds
             borderView.addSubview(photo)
         }
-        }
+        
         return cell
     }
 

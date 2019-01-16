@@ -15,8 +15,6 @@ class MyNewsController: UITableViewController {
     var allMyNews = ["Абстракция": "Идет набор в онлайн-университет для программистов от Mail Ru Group: обучение с нуля, упор на практику, совместная разработка, наставник и гарантия трудоустройства. В вашем обучении участвуют крупнейшие IT-компании России: Avito, Альфа-банк."]
         //, "Новый год": "Жареные креветки в панцире. Просто, быстро - жарим креветки без очистки.", "Любовь": "Мы не знаем, что будет завтра. Пусть оно просто будет. И пусть в нём будут все те, кто нам дорог...", "Цветы": "У животных тоже есть дружба)"]
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,8 +70,6 @@ class MyNewsController: UITableViewController {
         
         if let text = allMyNews[group] {
             cell.textNews.text = text
-            
-            //cell.likeCell.setup
         }
         return cell
     }

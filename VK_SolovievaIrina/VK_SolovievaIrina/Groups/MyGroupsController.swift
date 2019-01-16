@@ -18,10 +18,10 @@ class MyGroupsController: UITableViewController {
 
             // Получаем индекс выделенной ячейки
             if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
-                // Получаем город по индексу
-                let group = allGroupsController.allGroups[indexPath.row] 
+                // Получаем группу по индексу
+                let group = allGroupsController.allGroups[indexPath.row]
                 let groupFoto = allGroupsController.allGroupsFoto[group]
-                // Добавляем город в список выбранных городов
+                // Добавляем группу в список моих групп
                 if !myGroups.contains(group) {
                     myGroups.append(group)
                     //myGroupsFoto.append(group)
@@ -70,7 +70,7 @@ class MyGroupsController: UITableViewController {
             // add subview
             let borderView = UIView(frame: cell.fotoGroup.bounds)
             borderView.frame = cell.fotoGroup.bounds
-            borderView.layer.cornerRadius = 40
+            borderView.layer.cornerRadius = 25
             
             borderView.layer.masksToBounds = true
             cell.fotoGroup.addSubview(borderView)
@@ -94,6 +94,7 @@ class MyGroupsController: UITableViewController {
             myGroupsFoto.removeValue(forKey: keyGroup)
             // И удаляем строку из таблицы
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
 }

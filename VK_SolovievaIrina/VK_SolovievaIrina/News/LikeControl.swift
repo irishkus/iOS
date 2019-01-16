@@ -8,30 +8,31 @@
 
 import UIKit
 
-@IBDesignable class LikeControl: UIStackView {
+@IBDesignable class LikeControl: UIView {
     
     @IBInspectable var like = 45
     
     var likeActive = false
     var button = UIButton()
     var label = UILabel()
+    private var stackView: UIStackView!
     
-    class NewsGroup {
-        var fotoGroup: String
-        var textNews: String
-        var nameGroup: String
-        var like: Int
-        var likeActive: Bool
-        var button: UIButton?
-        init(fotoGroup: String, textNews: String, nameGroup: String, like: Int, likeActive: Bool, button: UIButton?) {
-            self.fotoGroup = fotoGroup
-            self.textNews = textNews
-            self.nameGroup = nameGroup
-            self.like = like
-            self.likeActive = likeActive
-            self.button = button
-        }
-    }
+//    class NewsGroup {
+//        var fotoGroup: String
+//        var textNews: String
+//        var nameGroup: String
+//        var like: Int
+//        var likeActive: Bool
+//        var button: UIButton?
+//        init(fotoGroup: String, textNews: String, nameGroup: String, like: Int, likeActive: Bool, button: UIButton?) {
+//            self.fotoGroup = fotoGroup
+//            self.textNews = textNews
+//            self.nameGroup = nameGroup
+//            self.like = like
+//            self.likeActive = likeActive
+//            self.button = button
+//        }
+//    }
     
 
     
@@ -64,22 +65,22 @@ import UIKit
         setupButtons()
     }
     
-
-    
-    required init(coder: NSCoder) {
-        super.init(coder: coder)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         setupButtons()
     }
     
+
+    
     func setupButtons()  {
-        removeArrangedSubview(label)
-        removeArrangedSubview(button)
         let bundle = Bundle(for: type(of: self))
         let filledHeart = UIImage(named: "like", in: bundle, compatibleWith: self.traitCollection)
         let emptyHeart = UIImage(named: "noLike", in: bundle, compatibleWith: self.traitCollection)
         label.text = String(like)
-        addArrangedSubview(button)
-        addArrangedSubview(label)
+        stackView = UIStackView(arrangedSubviews: [button, label])
+       // self.addSubview(stackView)
+        self.addSubview(button)
+        self.addSubview(label)
         label.leadingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
         label.topAnchor.constraint(equalTo: button.topAnchor, constant: 5.0).isActive = true
         if !likeActive {
@@ -93,15 +94,9 @@ import UIKit
             button.setImage(emptyHeart, for: .selected)
             label.textColor = UIColor.red
         }
-
-        
-        
     }
     
     @objc func likeButtonTapped(button: UIButton) {
-//        guard let like = ratingMyNews[] else {
-//            fatalError("The button, \(button), is not in the ratingButtons array: \(ratingMyNews)")
-        print("Button pressed 👍")
         if !likeActive {
             likeActive = true
             like += 1

@@ -10,41 +10,52 @@ import UIKit
 
 @IBDesignable class MyFriendsCell: UITableViewCell {
 
-    @IBOutlet var allFoto: [MyFriendsCell]!
-//
-//    @IBOutlet weak var friendName: UILabel!
-//    @IBOutlet weak var fotoFriend: UIImageView!
+  //  @IBOutlet var allFoto: [MyFriendsCell]!
+  //  private var shadowLayer: CAShapeLayer!
     
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var fotoFriend: UIImageView!
-   // @IBOutlet weak var friendName: UIView!
-   // @IBOutlet weak var fotoFriend: UIView!
+
     override class var layerClass: AnyClass {
         return CAShapeLayer.self
     }
     
-    @IBInspectable var shadowOffset: CGSize = CGSize(width: 3, height: 3)
-//        {
-//        didSet {
-//            setNeedsDisplay()
-//        }
+//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: "Cell")
 //    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//    
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 3, height: 3)
+        {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    @IBInspectable var radius: CGFloat = 10 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     
     /// Прозрачность тени
     @IBInspectable var shadowOpacity: Float = 0.3
-//        {
-//        didSet {
-//            setNeedsDisplay()
-//        }
-//    }
+        {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     /// Радиус блура тени
     @IBInspectable var shadowRadius: CGFloat = 10
-//        {
-//        didSet {
-//            setNeedsDisplay()
-//        }
-//    }
+        {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +66,16 @@ import UIKit
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+
+ 
     }
 
+//override func draw(_ rect: CGRect) {
+//    super.draw(rect)
+//
+//        fotoFriend.layer.shadowOffset = shadowOffset
+//        fotoFriend.layer.shadowRadius = shadowRadius
+//        fotoFriend.layer.shadowOpacity = shadowOpacity
+//
+//    }
 }

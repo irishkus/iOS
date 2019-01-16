@@ -101,30 +101,6 @@ class ViewController: UIViewController {
         }
 
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        // Проверяем данные
-        let checkResult = checkUserData()
-        
-        // Если данные неверны, покажем ошибку
-        if !checkResult {
-            showLoginError()
-        }
-        
-        // Вернем результат
-        return checkResult
-    }
-    
-    func checkUserData() -> Bool {
-        let login = loginInput.text!
-        let password = passwordInput.text!
-        
-        if login == " " && password == " " {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     func showLoginError() {
         // Создаем контроллер
         let alter = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
