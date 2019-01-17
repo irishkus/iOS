@@ -33,6 +33,10 @@ import UIKit
         super.viewDidLoad()
     }
 
+//    func filterAZ(_ friend:[String]) -> [String:[String]] {
+//
+//        return fotoMyFriends
+//    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -44,8 +48,8 @@ import UIKit
             })
             searchActive = true
             tableView.reloadData()
-            print("FF")
-            print(filteredFriends)
+//            print("FF")
+//            print(filteredFriends)
         }
         else {
             searchActive = false
@@ -73,20 +77,26 @@ import UIKit
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        
-        return characters.count
+        if searchActive {
+            return 1
+        } else {
+            return characters.count
+            
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if searchActive {
-            myFriendsCharacter = filteredFriends.filter {$0[$0.startIndex] == Character(characters[section]) }
-          //  print(myFriendsCharacter)
+            myFriendsCharacter = filteredFriends//.filter{$0[$0.startIndex] == Character(characters[section]) }
+//            print("========")
+//            print(myFriendsCharacter)
+//            print("========")
+//            print(section)
+            
         } else {
             myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[section]) }
-           //  print(myFriendsCharacter)
         }
-         print(myFriendsCharacter)
         return myFriendsCharacter.count
     }
 
@@ -97,7 +107,7 @@ import UIKit
       //  let friend = myFriendsCharacter[indexPath.row]
         //cell.friendName.text = friend
         if searchActive {
-            myFriendsCharacter = filteredFriends.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
+            myFriendsCharacter = filteredFriends//.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
             cell.friendName.text = myFriendsCharacter[indexPath.row]
         } else { myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
             cell.friendName.text = myFriendsCharacter[indexPath.row]}
@@ -130,21 +140,40 @@ import UIKit
     }
 
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return characters
+        if searchActive {
+            return nil
+        } else {
+            return characters
+            
+        }
     }
     
 //    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return String(characters[section])
+//
+//        if searchActive {
+//            return nil
+//        } else {
+//          //  section.
+//           // view.backgroundColor = tableView.backgroundColor
+//          //  view.alpha = 0.5
+//            return String(characters[section])
+//
+//        }
+//       // return String(characters[section])
 //    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        headerView.backgroundColor = tableView.backgroundColor
-        headerView.alpha = 0.5
-        let label = UILabel(frame: CGRect(x: 20, y: 8, width: 20, height: 20))
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17.0)
-        label.text = characters[section]
-        headerView.addSubview(label)
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+            headerView.backgroundColor = tableView.backgroundColor
+            headerView.alpha = 0.5
+            let label = UILabel(frame: CGRect(x: 20, y: 8, width: 150, height: 20))
+            label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17.0)
+        if searchActive {
+           label.text = "Результаты поиска"
+        } else {
+            label.text = characters[section]
+        }
+            headerView.addSubview(label)
         return headerView
     }
     
@@ -154,12 +183,17 @@ import UIKit
             let myFriendsController = segue.source as! MyFriendsController
             //  Получаем индекс выделенной ячейки
             if let indexPath = myFriendsController.tableView.indexPathForSelectedRow {
-                myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
+                if searchActive {
+                    myFriendsCharacter = filteredFriends
+                }
+                else {
+                    myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }}
                 // Получаем друга по индексу
                 let friend = myFriendsController.myFriendsCharacter[indexPath.row]
                 if let fotoDelegate = myFriendsController.fotoMyFriends[friend] {
                     fotoFriendsController.fotoDelegate = fotoDelegate
                 }
+                
             }
         }
     }
