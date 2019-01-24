@@ -20,42 +20,42 @@ import UIKit
         return CAShapeLayer.self
     }
     
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: "Cell")
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-//    
-    @IBInspectable var shadowOffset: CGSize = CGSize(width: 3, height: 3)
-        {
+    @IBOutlet weak var shadowView: UIView! {
         didSet {
-            setNeedsDisplay()
+            self.shadowView.layer.shadowOffset = shadowOffset
+            self.shadowView.layer.shadowOpacity = self.shadowOpacity
+            self.shadowView.layer.shadowRadius = self.shadowRadius
+            self.shadowView.backgroundColor = .clear
+            self.shadowView.layer.shadowColor = UIColor.black.cgColor
+            self.shadowView.layer.shadowPath = UIBezierPath(ovalIn: self.shadowView.bounds).cgPath
         }
     }
-    @IBInspectable var radius: CGFloat = 10 {
+    
+    @IBOutlet weak var containerView: UIView! {
         didSet {
-            setNeedsDisplay()
+            self.containerView.clipsToBounds = true
+            self.containerView.layer.cornerRadius = self.containerView.frame.width / 2
+           // self.containerView.frame = self.shadowView.bounds
         }
     }
 
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 3, height: 3)
     
     /// Прозрачность тени
     @IBInspectable var shadowOpacity: Float = 0.3
-        {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
+//        {
+//        didSet {
+//            setNeedsDisplay()
+//        }
+//    }
     
     /// Радиус блура тени
     @IBInspectable var shadowRadius: CGFloat = 10
-        {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
+//        {
+//        didSet {
+//            setNeedsDisplay()
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -70,12 +70,4 @@ import UIKit
  
     }
 
-//override func draw(_ rect: CGRect) {
-//    super.draw(rect)
-//
-//        fotoFriend.layer.shadowOffset = shadowOffset
-//        fotoFriend.layer.shadowRadius = shadowRadius
-//        fotoFriend.layer.shadowOpacity = shadowOpacity
-//
-//    }
 }

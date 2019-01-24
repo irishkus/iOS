@@ -32,14 +32,8 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-//    func filterAZ(_ friend:[String]) -> [String:[String]] {
-//
-//        return fotoMyFriends
-//    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         if searchText != "" {
             filteredFriends = myFriends.filter({(text) -> Bool in
                 let tmp: NSString = text as NSString
@@ -48,8 +42,6 @@ import UIKit
             })
             searchActive = true
             tableView.reloadData()
-//            print("FF")
-//            print(filteredFriends)
         }
         else {
             searchActive = false
@@ -64,14 +56,12 @@ import UIKit
 
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Зашел в cancel")
         searchBar.text = ""
         searchActive = false
         tableView.reloadData()
     }
     
     func searchBarIsEmpty() -> Bool {
-        print("Зашел в empty")
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
@@ -89,54 +79,40 @@ import UIKit
         // #warning Incomplete implementation, return the number of rows
         if searchActive {
             myFriendsCharacter = filteredFriends//.filter{$0[$0.startIndex] == Character(characters[section]) }
-//            print("========")
-//            print(myFriendsCharacter)
-//            print("========")
-//            print(section)
             
         } else {
             myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[section]) }
         }
         return myFriendsCharacter.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
+        if searchActive {
+            return 0
+        } else {return CGFloat(28)}
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! MyFriendsCell
       //  let friend = myFriendsCharacter[indexPath.row]
         //cell.friendName.text = friend
         if searchActive {
             myFriendsCharacter = filteredFriends//.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
             cell.friendName.text = myFriendsCharacter[indexPath.row]
+          //  cell.sectio
         } else { myFriendsCharacter = myFriends.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
             cell.friendName.text = myFriendsCharacter[indexPath.row]}
         cell.layer.backgroundColor = UIColor.clear.cgColor
         if let nameAvatar = fotoMyFriends[(cell.friendName.text)!]?.last {
-
-            cell.fotoFriend.backgroundColor = UIColor.clear
-            cell.fotoFriend.layer.shadowColor = UIColor.black.cgColor
-            cell.fotoFriend.layer.shadowOffset = cell.shadowOffset
-            cell.fotoFriend.layer.shadowOpacity = cell.shadowOpacity
-            cell.fotoFriend.layer.shadowRadius = cell.shadowRadius
-            cell.fotoFriend.layer.masksToBounds = false
-            
-            // add subview
-            let borderView = UIView(frame: cell.fotoFriend.bounds)
-            borderView.frame = cell.fotoFriend.bounds
-            borderView.layer.cornerRadius = 25
-            borderView.layer.masksToBounds = true
-            cell.fotoFriend.addSubview(borderView)
             
             // add subcontent
             let photo = UIImageView()
             photo.image = UIImage(named: nameAvatar)
-            photo.frame = borderView.bounds
-            borderView.addSubview(photo)
+            photo.frame = cell.containerView.bounds
+            cell.containerView.addSubview(photo)
             
         }
         return cell
-        
     }
 
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -144,23 +120,8 @@ import UIKit
             return nil
         } else {
             return characters
-            
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//        if searchActive {
-//            return nil
-//        } else {
-//          //  section.
-//           // view.backgroundColor = tableView.backgroundColor
-//          //  view.alpha = 0.5
-//            return String(characters[section])
-//
-//        }
-//       // return String(characters[section])
-//    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
@@ -168,14 +129,40 @@ import UIKit
             headerView.alpha = 0.5
             let label = UILabel(frame: CGRect(x: 20, y: 8, width: 150, height: 20))
             label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17.0)
-        if searchActive {
-           label.text = "Результаты поиска"
-        } else {
             label.text = characters[section]
-        }
             headerView.addSubview(label)
         return headerView
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let heightCell = cell.frame.height//cell.bounds.height
+        let widhtCell = cell.frame.width//cell.bounds.width
+        cell.alpha = 0
+        cell.frame.size.height = 0//origin.x = 0
+        cell.frame.size.width = 0
+      //  cell.bounds = CGRect(x: 0, y: 0, width: 0, height: 0)
+        UIView.animate(withDuration: 1.0) {
+            cell.alpha = 1
+            cell.frame.size.height = heightCell
+            cell.frame.size.width = widhtCell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt: IndexPath) {
+//        let heightCell = cell.frame.height//cell.bounds.height
+//        let widhtCell = cell.frame.width//cell.bounds.width
+        cell.alpha = 1
+//        cell.frame.size.height = heightCell//origin.x = 0
+//        cell.frame.size.width = widhtCell
+//        cell.bounds = CGRect(x: 0, y: 0, width: widhtCell, height: heightCell)
+        UIView.animate(withDuration: 1.0) {
+            cell.alpha = 0
+//            cell.frame.size.height = 0
+//            cell.frame.size.width = 0
+        }
+    }
+
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "allFotoFriend" {
@@ -193,11 +180,9 @@ import UIKit
                 if let fotoDelegate = myFriendsController.fotoMyFriends[friend] {
                     fotoFriendsController.fotoDelegate = fotoDelegate
                 }
-                
             }
         }
     }
-    
 }
 
 

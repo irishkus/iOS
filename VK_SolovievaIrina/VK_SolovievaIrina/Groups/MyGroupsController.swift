@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyGroupsController: UITableViewController {
+class MyGroupsController: UITableViewController, UISearchBarDelegate {
 
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         // Проверяем идентификатор, чтобы убедится, что это нужный переход
@@ -24,42 +24,72 @@ class MyGroupsController: UITableViewController {
                 // Добавляем группу в список моих групп
                 if !myGroups.contains(group) {
                     myGroups.append(group)
-                    //myGroupsFoto.append(group)
                     // Обновляем таблицу
                     myGroupsFoto[group] = groupFoto
                     tableView.reloadData()
                 }
             }
-
         }
-
     }
-
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     var myGroups = ["Котики", "Собачки", "Кролики"]
     var myGroupsFoto = ["Котики": "red", "Собачки": "green", "Кролики": "orange"]
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredGroup: [String] = []
+    var searchActive : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    // MARK: - Table view data source
-
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filteredGroup = myGroups.filter({(text) -> Bool in
+                let tmp: NSString = text as NSString
+                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+                return range.location != NSNotFound
+            })
+            searchActive = true
+            tableView.reloadData()}
+        else {
+            searchActive = false
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchActive = false
+        tableView.reloadData()
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return myGroups.count
+        if searchActive {
+            return filteredGroup.count
+        } else {
+            return myGroups.count
+        }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! MyGroupCell
-        let group = myGroups[indexPath.row]
-        cell.groupName.text = group
-        if let nameAvatar = myGroupsFoto[group] {
+        if searchActive {
+            cell.groupName.text = filteredGroup[indexPath.row]
+        } else { cell.groupName.text = myGroups[indexPath.row]}
+        //        let group = myGroups[indexPath.row]
+        //        cell.groupName.text = group
+        if let nameAvatar = myGroupsFoto[myGroups[indexPath.row]] {
             cell.fotoGroup.backgroundColor = UIColor.clear
             cell.fotoGroup.layer.shadowColor = UIColor.black.cgColor
             cell.fotoGroup.layer.shadowOffset = cell.shadowOffset

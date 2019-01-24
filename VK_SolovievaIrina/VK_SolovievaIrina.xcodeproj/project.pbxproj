@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C660B5521F35A9F00B4D903 /* MyNewsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C660B5421F35A9F00B4D903 /* MyNewsLayout.swift */; };
+		8C660B5921F3610F00B4D903 /* MyNewsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C660B5821F3610F00B4D903 /* MyNewsCollectionView.swift */; };
+		8C9D98C621F4B05C001862D2 /* MyNewsColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9D98C421F4B05C001862D2 /* MyNewsColCell.swift */; };
+		8C9D98C721F4B05C001862D2 /* MyNewsColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9D98C521F4B05C001862D2 /* MyNewsColCell.xib */; };
 		8CAAF35D21C635D3004AA630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAF35C21C635D3004AA630 /* AppDelegate.swift */; };
 		8CAAF35F21C635D3004AA630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAF35E21C635D3004AA630 /* ViewController.swift */; };
 		8CAAF36221C635D3004AA630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAF36021C635D3004AA630 /* Main.storyboard */; };
@@ -46,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C660B5421F35A9F00B4D903 /* MyNewsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsLayout.swift; sourceTree = "<group>"; };
+		8C660B5821F3610F00B4D903 /* MyNewsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsCollectionView.swift; sourceTree = "<group>"; };
+		8C9D98C421F4B05C001862D2 /* MyNewsColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsColCell.swift; sourceTree = "<group>"; };
+		8C9D98C521F4B05C001862D2 /* MyNewsColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyNewsColCell.xib; sourceTree = "<group>"; };
 		8CAAF35921C635D3004AA630 /* VK_SolovievaIrina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_SolovievaIrina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAAF35C21C635D3004AA630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CAAF35E21C635D3004AA630 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +167,10 @@
 				8CF24CE821E23E1F006B51D4 /* LikeControl.swift */,
 				8CF24CEA21E2A539006B51D4 /* MyNewsController.swift */,
 				8CF24CEE21E2A780006B51D4 /* MyNewsCell.swift */,
+				8C660B5421F35A9F00B4D903 /* MyNewsLayout.swift */,
+				8C660B5821F3610F00B4D903 /* MyNewsCollectionView.swift */,
+				8C9D98C421F4B05C001862D2 /* MyNewsColCell.swift */,
+				8C9D98C521F4B05C001862D2 /* MyNewsColCell.xib */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -289,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9D98C721F4B05C001862D2 /* MyNewsColCell.xib in Resources */,
 				8CAAF36A21C635D5004AA630 /* LaunchScreen.storyboard in Resources */,
 				8CAAF36721C635D5004AA630 /* Assets.xcassets in Resources */,
 				8CAAF36221C635D3004AA630 /* Main.storyboard in Resources */,
@@ -319,6 +332,8 @@
 				8CAAF35F21C635D3004AA630 /* ViewController.swift in Sources */,
 				8CF61E8321CE521300D9C21A /* MyFriendsCell.swift in Sources */,
 				8CF61E9321D2342800D9C21A /* AllGroupsCell.swift in Sources */,
+				8C660B5521F35A9F00B4D903 /* MyNewsLayout.swift in Sources */,
+				8C9D98C621F4B05C001862D2 /* MyNewsColCell.swift in Sources */,
 				8CF61E8521D0D68300D9C21A /* FotoCollectionCell.swift in Sources */,
 				8CF61E8F21D233C200D9C21A /* MyGroupCell.swift in Sources */,
 				8CF61E8121CE2AD500D9C21A /* FotoFriendCollectionController.swift in Sources */,
@@ -330,6 +345,7 @@
 				8CAAF35D21C635D3004AA630 /* AppDelegate.swift in Sources */,
 				8CF24CE921E23E1F006B51D4 /* LikeControl.swift in Sources */,
 				8CF61E7B21CE298600D9C21A /* MyFriendsController.swift in Sources */,
+				8C660B5921F3610F00B4D903 /* MyNewsCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

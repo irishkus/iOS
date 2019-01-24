@@ -29,6 +29,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
  
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var loginInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
 
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
             print("неуспешная авторизация")
         }
     }
+
 
     @objc func keyboardWasShown(notification: Notification) {
         
@@ -71,7 +73,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        animateLogoImage()
         // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Второе -- когда она пропадает
@@ -87,6 +89,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  animateAuthButton()
         view.backgroundColor = #colorLiteral(red: 0.3218865068, green: 0.5109791314, blue: 0.7149964697, alpha: 1)
         // жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -110,6 +113,19 @@ class ViewController: UIViewController {
         alter.addAction(action)
         // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
+    }
+    
+    func animateLogoImage() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 200
+        animation.mass = 2
+        animation.duration = 5
+        animation.beginTime = CACurrentMediaTime() + 1
+        animation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.logoImage.layer.add(animation, forKey: nil)
     }
 
     }
