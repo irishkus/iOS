@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C102FE321FA320A00DD8744 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C102FE221FA320A00DD8744 /* LoadView.swift */; };
+		8C63777521FF29770081FB6D /* LoadNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63777421FF29770081FB6D /* LoadNewView.swift */; };
 		8C660B5521F35A9F00B4D903 /* MyNewsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C660B5421F35A9F00B4D903 /* MyNewsLayout.swift */; };
 		8C660B5921F3610F00B4D903 /* MyNewsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C660B5821F3610F00B4D903 /* MyNewsCollectionView.swift */; };
 		8C9D98C621F4B05C001862D2 /* MyNewsColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9D98C421F4B05C001862D2 /* MyNewsColCell.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C102FE221FA320A00DD8744 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
+		8C63777421FF29770081FB6D /* LoadNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNewView.swift; sourceTree = "<group>"; };
 		8C660B5421F35A9F00B4D903 /* MyNewsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsLayout.swift; sourceTree = "<group>"; };
 		8C660B5821F3610F00B4D903 /* MyNewsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsCollectionView.swift; sourceTree = "<group>"; };
 		8C9D98C421F4B05C001862D2 /* MyNewsColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsColCell.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				8CAAF36821C635D5004AA630 /* LaunchScreen.storyboard */,
 				8CAAF36B21C635D5004AA630 /* Info.plist */,
 				8CAAF36321C635D3004AA630 /* VK_SolovievaIrina.xcdatamodeld */,
+				8C102FE221FA320A00DD8744 /* LoadView.swift */,
+				8C63777421FF29770081FB6D /* LoadNewView.swift */,
 			);
 			path = VK_SolovievaIrina;
 			sourceTree = "<group>";
@@ -341,6 +347,8 @@
 				8CAAF36521C635D3004AA630 /* VK_SolovievaIrina.xcdatamodeld in Sources */,
 				8CF61E8D21D2335F00D9C21A /* MyGroupsController.swift in Sources */,
 				8CF61E9121D2340900D9C21A /* AllGroupsController.swift in Sources */,
+				8C63777521FF29770081FB6D /* LoadNewView.swift in Sources */,
+				8C102FE321FA320A00DD8744 /* LoadView.swift in Sources */,
 				8CF24CEB21E2A539006B51D4 /* MyNewsController.swift in Sources */,
 				8CAAF35D21C635D3004AA630 /* AppDelegate.swift in Sources */,
 				8CF24CE921E23E1F006B51D4 /* LikeControl.swift in Sources */,

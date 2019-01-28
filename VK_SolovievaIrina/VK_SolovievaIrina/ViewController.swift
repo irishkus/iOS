@@ -13,7 +13,7 @@ import UIKit
         override func draw(_ rect: CGRect) {
             updateLayerProperties()
         }
-
+        
         func updateLayerProperties() {
             self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
             self.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -27,6 +27,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loadView1: LoadView!
+    @IBOutlet weak var loadView2: LoadView!
+    @IBOutlet weak var loadView3: LoadView!
     @IBOutlet weak var scrollView: UIScrollView!
  
     @IBOutlet weak var logoImage: UIImageView!
@@ -46,9 +49,21 @@ class ViewController: UIViewController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+       // super.viewDidAppear(animated)
+        let loadViews = [loadView1, loadView2, loadView3]
+        var delayLoad: TimeInterval = 1.0
+        for loadView in loadViews {
+            if let load = loadView {
+            UIView.animate(withDuration: 0.5, delay: delayLoad, options: [.repeat, .autoreverse], animations: {
+                load.layer.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            })
+              delayLoad += 0.2
+            }
+        }
+    }
 
     @objc func keyboardWasShown(notification: Notification) {
-        
         // Получаем размер клавиатуры
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -73,7 +88,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        animateLogoImage()
         // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Второе -- когда она пропадает
@@ -115,18 +129,8 @@ class ViewController: UIViewController {
         present(alter, animated: true, completion: nil)
     }
     
-    func animateLogoImage() {
-        let animation = CASpringAnimation(keyPath: "transform.scale")
-        animation.fromValue = 0
-        animation.toValue = 1
-        animation.stiffness = 200
-        animation.mass = 2
-        animation.duration = 5
-        animation.beginTime = CACurrentMediaTime() + 1
-        animation.fillMode = CAMediaTimingFillMode.backwards
-        
-        self.logoImage.layer.add(animation, forKey: nil)
-    }
+
+
 
     }
 

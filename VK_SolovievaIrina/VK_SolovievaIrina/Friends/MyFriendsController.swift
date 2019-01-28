@@ -31,6 +31,8 @@ import UIKit
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barStyle = .default
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -96,6 +98,7 @@ import UIKit
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! MyFriendsCell
       //  let friend = myFriendsCharacter[indexPath.row]
         //cell.friendName.text = friend
+        self.navigationController?.navigationBar.barStyle = .default
         if searchActive {
             myFriendsCharacter = filteredFriends//.filter {$0[$0.startIndex] == Character(characters[indexPath.section]) }
             cell.friendName.text = myFriendsCharacter[indexPath.row]
@@ -112,7 +115,9 @@ import UIKit
             cell.containerView.addSubview(photo)
             
         }
+        self.navigationController?.navigationBar.barStyle = .default
         return cell
+        
     }
 
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -147,23 +152,7 @@ import UIKit
             cell.frame.size.width = widhtCell
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt: IndexPath) {
-//        let heightCell = cell.frame.height//cell.bounds.height
-//        let widhtCell = cell.frame.width//cell.bounds.width
-        cell.alpha = 1
-//        cell.frame.size.height = heightCell//origin.x = 0
-//        cell.frame.size.width = widhtCell
-//        cell.bounds = CGRect(x: 0, y: 0, width: widhtCell, height: heightCell)
-        UIView.animate(withDuration: 1.0) {
-            cell.alpha = 0
-//            cell.frame.size.height = 0
-//            cell.frame.size.width = 0
-        }
-    }
-
-
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "allFotoFriend" {
             let fotoFriendsController : FotoFriendCollectionController = segue.destination as! FotoFriendCollectionController

@@ -85,7 +85,7 @@ class MyNewsController: UITableViewController {
         cell.sumCommentNews.text = allMyNews[group]?.commentNews
         cell.sumShareNews.text = allMyNews[group]?.shareNews
         cell.sumViewNews.text = allMyNews[group]?.viewNews
-        cell.collectionFotoNews.frame = CGRect(x: 0, y: 0, width: 360, height: 200)
+      //  cell.collectionFotoNews.frame = CGRect(x: 0, y: 0, width: 360, height: 200)
         cell.collectionFotoNews.addSubview(UIImageView(image: UIImage(named: (allMyNews[group]?.nameFotoNews)!)))
       //  cell.fotoNews.image = UIImage(named: (allMyNews[group]?.nameFotoNews)!)
         cell.likeCell.label.text = String((allMyNews[group]?.like)!)
