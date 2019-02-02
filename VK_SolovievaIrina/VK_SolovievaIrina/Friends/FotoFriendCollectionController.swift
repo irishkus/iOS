@@ -19,8 +19,8 @@ class FotoFriendCollectionController: UICollectionViewController {
         self.navigationItem.backBarButtonItem?.title = "Закрыть"
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
-        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
-        self.collectionView.addGestureRecognizer(recognizer)
+     //   let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+      //  self.collectionView.addGestureRecognizer(recognizer)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
