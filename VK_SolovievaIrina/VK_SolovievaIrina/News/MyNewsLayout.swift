@@ -8,40 +8,63 @@
 
 import UIKit
 
+protocol MyNewsLayoutDelegate: class {
+    func ratio(forItemAt indexPath: IndexPath) -> CGFloat
+}
+
 class MyNewsLayout: UICollectionViewLayout {
+    
+    weak var delegate: MyNewsLayoutDelegate?
+        // Хранит атрибуты для заданных индексов
     var cacheAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
-    // Хранит атрибуты для заданных индексов
-    
-    var columnsCount = 2                  // Количество столбцов
-    
-    var cellHeight: CGFloat = 128         // Высота ячейки
-    
-    private var totalCellsHeight: CGFloat = 0 // Хранит суммарную высоту всех ячеек
+
     
     override func prepare() {
         super.prepare()
+        print("234")
         // Проверяем налачие collectionView
         self.cacheAttributes = [:]
-        guard let collectionView = self.collectionView else { return }
-        
+        guard let collectionView = self.collectionView else {  return }
+        let delegate = self.delegate!
         let itemsCount = collectionView.numberOfItems(inSection: 0)
         // Проверяем, что в секции есть хотя бы одна ячейка
         guard itemsCount > 0 else { return }
         
-        let cellWidth = collectionView.frame.width
-        let cellHeight = collectionView.frame.height
         
+        var firstColumnHeight: CGFloat = 0.0
+        var secondColumnHeight: CGFloat = 0.0
+        var allAtributes: [IndexPath: UICollectionViewLayoutAttributes] = [:]
+        
+        if itemsCount > 1 {
         for index in 0..<itemsCount {
+            let cellWidth = collectionView.frame.width/2
             let indexPath = IndexPath(item: index, section: 0)
-            //  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyNews", for: indexPath) as! MyNewsCollectionViewCell
+            let ratio = delegate.ratio(forItemAt: indexPath)
+            let cellHeight = cellWidth/ratio
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            attributes.frame = CGRect(x: 0, y: 0, width: cellWidth/2, height: cellHeight/2)
-            cacheAttributes[indexPath] = attributes
+            let isFirstColumn = firstColumnHeight <= secondColumnHeight
+            let x = isFirstColumn ? 0.0 : cellWidth
+            let y = isFirstColumn ? firstColumnHeight : secondColumnHeight
+            attributes.frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
+            print(attributes.frame)
+            allAtributes[indexPath] = attributes
+            if isFirstColumn {
+                firstColumnHeight += cellHeight
+            } else {secondColumnHeight += cellHeight}
         }
+        } else {let cellWidth = collectionView.frame.width
+            let indexPath = IndexPath(item: 0, section: 0)
+            let ratio = delegate.ratio(forItemAt: indexPath)
+            let cellHeight = cellWidth/ratio
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            attributes.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellHeight)
+            print(attributes.frame)
+            allAtributes[indexPath] = attributes
+        }
+        self.cacheAttributes = allAtributes
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         return cacheAttributes.values.filter {attributes in
             return rect.intersects(attributes.frame)
         }
@@ -52,10 +75,20 @@ class MyNewsLayout: UICollectionViewLayout {
     }
     
     override var collectionViewContentSize: CGSize {
-      //  return CGSize(width: self.collectionView?.frame.width ?? 0,
-                   //   height: self.totalCellsHeight)
-        return CGSize(width: 100,
-           height: 100)
+        var maxX:CGFloat = 0.0
+        var maxY: CGFloat = 0.0
+        for attribute in self.cacheAttributes.values {
+            if maxX < attribute.frame.maxX {
+                maxX = attribute.frame.maxX
+            }
+            if maxY < attribute.frame.maxY {
+                maxY = attribute.frame.maxY
+            }
+        }
+        print(maxX)
+        print(maxY)
+        return CGSize(width: maxX, height: maxY)
     }
+
 
 }

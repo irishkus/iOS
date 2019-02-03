@@ -10,13 +10,7 @@ import UIKit
 
 class MyNewsColCell: UICollectionViewCell {
 
-    @IBOutlet weak var FotoNews: UIImageView!
-    @IBOutlet weak var fotosNews: MyNewsCollectionView!
-    // @IBOutlet weak var imageNews: UIImageView!
- //   @IBOutlet weak var imageNews: UIImageView!
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-
+    @IBOutlet weak var fotoNews: UICollectionView!
+    @IBOutlet weak var imageNews: UIImageView!
+    
 }

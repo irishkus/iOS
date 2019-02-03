@@ -265,21 +265,38 @@
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JkW-f0-V92">
                                             <rect key="frame" x="0.0" y="138" width="375" height="189.33333333333337"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CHa-VA-sZK">
-                                                <size key="itemSize" width="375" height="200"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jyt-Cq-PgY">
+                                                <size key="itemSize" width="50" height="50"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FotoNewsCell" id="cJG-J8-Fkc">
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="NewsFotoCell" id="cJG-J8-Fkc" customClass="MyNewsColCell" customModule="VK_SolovievaIrina" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ijt-R4-8JH">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </imageView>
+                                                        </subviews>
                                                     </view>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Ijt-R4-8JH" secondAttribute="bottom" id="39j-Ma-Uhf"/>
+                                                        <constraint firstItem="Ijt-R4-8JH" firstAttribute="leading" secondItem="cJG-J8-Fkc" secondAttribute="leading" id="Gd0-Uo-MEb"/>
+                                                        <constraint firstItem="Ijt-R4-8JH" firstAttribute="top" secondItem="cJG-J8-Fkc" secondAttribute="top" id="bNM-Ao-zOq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ijt-R4-8JH" secondAttribute="trailing" id="w0Z-ah-f9p"/>
+                                                    </constraints>
                                                     <size key="customSize" width="375" height="200"/>
+                                                    <connections>
+                                                        <outlet property="fotoNews" destination="JkW-f0-V92" id="TMN-R7-dpr"/>
+                                                        <outlet property="imageNews" destination="Ijt-R4-8JH" id="pse-Dz-lTJ"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
@@ -330,7 +347,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="collectionFotoNews" destination="JkW-f0-V92" id="ftm-aS-NIE"/>
+                                    <outlet property="fotoNews" destination="JkW-f0-V92" id="VKa-0q-lEK"/>
                                     <outlet property="groupNewsFoto" destination="Ziv-qP-jCk" id="KcW-hf-URF"/>
                                     <outlet property="groupNewsName" destination="g5U-Fg-8S9" id="gbV-vi-o3E"/>
                                     <outlet property="likeCell" destination="nFy-ls-YiT" id="waR-uC-PXZ"/>
@@ -350,7 +367,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yA-Sc-oVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6117.6000000000004" y="-996.25187406296857"/>
+            <point key="canvasLocation" x="6117.6000000000004" y="-996.79802955665025"/>
         </scene>
         <!--Новости-->
         <scene sceneID="NaL-Ic-Mhh">
