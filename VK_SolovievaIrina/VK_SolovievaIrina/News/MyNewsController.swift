@@ -47,10 +47,7 @@ class MyNewsController: UITableViewController , MyNewsLayoutDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! MyNewsCell
         let group = allGroups[indexPath.row]
         cell.groupNewsName.text = group
-       // let layout = MyNewsLayout()
-       // let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         cell.allFotoNews = (allMyNews[group]?.nameFotoNews)!
-        print(cell.allFotoNews)
         if let nameAvatar = allMyNews[group]?.groupsFoto {
             cell.groupNewsFoto.backgroundColor = UIColor.clear
             cell.groupNewsFoto.layer.shadowColor = UIColor.black.cgColor
@@ -71,7 +68,6 @@ class MyNewsController: UITableViewController , MyNewsLayoutDelegate {
             photo.image = UIImage(named: nameAvatar)
             photo.frame = borderView.bounds
             borderView.addSubview(photo)
-            //cell.groupNewsFoto.image = UIImage(named: nameAvatar)
         }
         if let text = allMyNews[group]?.textNews {
             cell.textNews.text = text

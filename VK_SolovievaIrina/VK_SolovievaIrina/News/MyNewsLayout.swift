@@ -21,7 +21,6 @@ class MyNewsLayout: UICollectionViewLayout {
     
     override func prepare() {
         super.prepare()
-        print("234")
         // Проверяем налачие collectionView
         self.cacheAttributes = [:]
         guard let collectionView = self.collectionView else {  return }
@@ -46,7 +45,6 @@ class MyNewsLayout: UICollectionViewLayout {
             let x = isFirstColumn ? 0.0 : cellWidth
             let y = isFirstColumn ? firstColumnHeight : secondColumnHeight
             attributes.frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
-            print(attributes.frame)
             allAtributes[indexPath] = attributes
             if isFirstColumn {
                 firstColumnHeight += cellHeight
@@ -58,7 +56,6 @@ class MyNewsLayout: UICollectionViewLayout {
             let cellHeight = cellWidth/ratio
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellHeight)
-            print(attributes.frame)
             allAtributes[indexPath] = attributes
         }
         self.cacheAttributes = allAtributes

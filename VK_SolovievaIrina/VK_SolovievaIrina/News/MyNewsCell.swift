@@ -14,29 +14,20 @@ class MyNewsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
 
     
     private func image(at indexPath: IndexPath) -> UIImage {
-        print("заходит 3")
         return UIImage(named: allFotoNews[indexPath.row])!
     }
  
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        print("заходит")
         return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("заходит 2")
         return allFotoNews.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsFotoCell", for: indexPath) as! MyNewsColCell
-        print(allFotoNews[indexPath.row])
         cell.imageNews.image = self.image(at: indexPath)
-      //  cell.
-        
-        
-        print("========= \(String(describing: cell.imageNews))")
         return cell
     }
     
@@ -66,12 +57,9 @@ class MyNewsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         super.awakeFromNib()
         let customSuperLayout = MyNewsLayout()
         customSuperLayout.delegate = self
-       // fotoNews = UICollectionView
         fotoNews.setCollectionViewLayout(customSuperLayout, animated: false)
         fotoNews.dataSource = self
         fotoNews.delegate = self
-      
-     //   ratio.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
