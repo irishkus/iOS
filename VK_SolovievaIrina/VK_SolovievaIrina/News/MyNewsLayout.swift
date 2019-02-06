@@ -82,8 +82,6 @@ class MyNewsLayout: UICollectionViewLayout {
                 maxY = attribute.frame.maxY
             }
         }
-        print(maxX)
-        print(maxY)
         return CGSize(width: maxX, height: maxY)
     }
 
