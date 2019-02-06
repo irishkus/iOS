@@ -10,15 +10,14 @@ import UIKit
 
 class MyNewsController: UITableViewController , MyNewsLayoutDelegate {
 
-    var allGroups = ["Абстракция", "Новый год", "Цветы", "Любовь", "Котики", "Собачки", "Кролики"]
+    var allGroups = ["Новый год", "Цветы", "Абстракция"]
     
     private func image(at indexPath: IndexPath) -> UIImage {
         print("заходит 3")
         return UIImage(named: (allMyNews[allGroups[indexPath.row]]?.nameFotoNews[indexPath.row])!)!
     }
 
-        var allMyNews:[String:(groupsFoto: String, textNews: String, nameFotoNews: [String], commentNews: String, shareNews: String, viewNews: String, like:Int)] = ["Абстракция": (groupsFoto: "line", textNews: "Идет набор в онлайн-университет для программистов от Mail Ru Group: обучение с нуля, упор на практику, совместная разработка, наставник и гарантия трудоустройства. В вашем обучении участвуют крупнейшие IT-компании России: Avito, Альфа-банк.", nameFotoNews: ["fotoNews"], commentNews: "20", shareNews: "3", viewNews: "756", like: 33), "Новый год": (groupsFoto: "fir", textNews: "Жареные креветки в панцире. Просто, быстро - жарим креветки без очистки.", nameFotoNews: ["shrimp", "shrimp2"], commentNews: "293", shareNews: "43", viewNews: "7,6К", like: 367), "Цветы": (groupsFoto: "rose", textNews: "С добрый утром!", nameFotoNews: ["mount", "mountain2", "mountain3"], commentNews: "36", shareNews: "70", viewNews: "15К", like: 580)]
-
+        var allMyNews:[String:(groupsFoto: String, textNews: String, nameFotoNews: [String], commentNews: String, shareNews: String, viewNews: String, like:Int)] = ["Новый год": (groupsFoto: "fir", textNews: "Жареные креветки в панцире. Просто, быстро - жарим креветки без очистки.", nameFotoNews: ["shrimp", "shrimp2","shrimp3","shrimp4"], commentNews: "293", shareNews: "43", viewNews: "7,6К", like: 367), "Цветы": (groupsFoto: "rose", textNews: "С добрый утром!", nameFotoNews: ["mount", "mountain2", "mountain3"], commentNews: "36", shareNews: "70", viewNews: "15К", like: 580), "Абстракция": (groupsFoto: "line", textNews: "Идет набор в онлайн-университет для программистов от Mail Ru Group: обучение с нуля, упор на практику, совместная разработка, наставник и гарантия трудоустройства. В вашем обучении участвуют крупнейшие IT-компании России: Avito, Альфа-банк.", nameFotoNews: ["fotoNews"], commentNews: "20", shareNews: "3", viewNews: "756", like: 33)]
     
     override func viewDidLoad() {
         super.viewDidLoad()

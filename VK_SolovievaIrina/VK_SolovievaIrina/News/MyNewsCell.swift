@@ -10,32 +10,6 @@ import UIKit
 
 class MyNewsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate,  MyNewsLayoutDelegate {
     
-    var allFotoNews = [String]()
-
-    
-    private func image(at indexPath: IndexPath) -> UIImage {
-        return UIImage(named: allFotoNews[indexPath.row])!
-    }
- 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allFotoNews.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsFotoCell", for: indexPath) as! MyNewsColCell
-        cell.imageNews.image = self.image(at: indexPath)
-        return cell
-    }
-    
-    func ratio (forItemAt indexPath: IndexPath) -> CGFloat {
-        let image = self.image(at: indexPath)
-        return image.size.width/image.size.height
-    }
-
     @IBOutlet weak var fotoNews: UICollectionView! 
     @IBOutlet weak var sumViewNews: UILabel!
     @IBOutlet weak var sumShareNews: UILabel!
@@ -52,6 +26,31 @@ class MyNewsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
 
     /// Радиус блура тени
     @IBInspectable var shadowRadius: CGFloat = 10
+    
+    var allFotoNews = [String]()
+    
+    private func image(at indexPath: IndexPath) -> UIImage {
+        return UIImage(named: allFotoNews[indexPath.row])!
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return allFotoNews.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsFotoCell", for: indexPath) as! MyNewsColCell
+        cell.imageNews.image = self.image(at: indexPath)
+        return cell
+    }
+    
+    func ratio (forItemAt indexPath: IndexPath) -> CGFloat {
+        let image = self.image(at: indexPath)
+        return image.size.width/image.size.height
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
